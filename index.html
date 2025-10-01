@@ -103,22 +103,22 @@
         }
         
         .period-title { 
-            font-size: 12px; 
+            font-size: 11px; 
             margin-bottom: 2px; 
             display: block; 
         }
         
         .bonus-amount { 
-            font-size: 16px; 
+            font-size: 15px; 
             white-space: nowrap; 
         }
         
         .bonus-label, .total-sum { 
-            font-size: 15px; /* Уменьшено на 1 пункт */
+            font-size: 16px; 
         }
         
         .total-amount { 
-            font-size: 16px; /* Уменьшено на 1 пункт */
+            font-size: 17px; 
             white-space: nowrap; 
         }
         
@@ -162,7 +162,14 @@
         }
         
         .oklad-metric {
-            font-size: 15px;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            padding-left: 8px; /* Грамотное смещение вместо пробела */
+        }
+        
+        .oklad-metric span:first-child {
+            margin-right: 8px; /* Дополнительное пространство между "Оклад" и суммой */
         }
         
         .sprint-container {
@@ -326,7 +333,7 @@
                         <div class="avatar" id="avatar"></div>
                         <div class="info">
                             <h2 class="name" id="name">А28-Денис</h2>
-                            <p class="position">Аналитик данных</p>
+                            <p class="position">Аналитик</p>
                         </div>
                     </div>
                     <div class="metric no-border oklad-metric"><span>Оклад</span><span id="oklad">-- ₽</span></div>
@@ -344,7 +351,7 @@
                         </div>
                     </div>
                     <div class="metric no-border">
-                        <span class="total-sum">Сумма выплат</span>
+                        <span class="total-sum">Выплата</span>
                         <div class="total-row">
                             <span class="total-amount" id="total">-- ₽</span>
                         </div>
@@ -358,13 +365,13 @@
                         <h3 class="sprint-title">1-й спринт</h3>
                         <div class="sprint-block">
                             <div class="task-progress-block">
-                                <div class="metric no-border"><span>Задачи</span><span id="tasks1">--</span></div>
+                                <div class="metric no-border"><span>Выполнено задач</span><span id="tasks1">--</span></div>
                                 <div class="progress-bar">
                                     <div class="progress-fill" id="progressFill1" style="width: 0%;"></div>
                                 </div>
                             </div>
                             <div class="epic-bonus-block">
-                                <div class="metric no-border"><span>Эпики</span><span id="epics1">--</span></div>
+                                <div class="metric no-border"><span>Закрыто эпиков</span><span id="epics1">--</span></div>
                                 <div class="metric no-border"><span>Бонус</span><span id="sprintBonus1">-- ₽</span></div>
                             </div>
                         </div>
@@ -373,13 +380,13 @@
                         <h3 class="sprint-title">2-й спринт</h3>
                         <div class="sprint-block">
                             <div class="task-progress-block">
-                                <div class="metric no-border"><span>Задачи</span><span id="tasks2">--</span></div>
+                                <div class="metric no-border"><span>Выполнено задач</span><span id="tasks2">--</span></div>
                                 <div class="progress-bar">
                                     <div class="progress-fill" id="progressFill2" style="width: 0%;"></div>
                                 </div>
                             </div>
                             <div class="epic-bonus-block">
-                                <div class="metric no-border"><span>Эпики</span><span id="epics2">--</span></div>
+                                <div class="metric no-border"><span>Закрыто эпиков</span><span id="epics2">--</span></div>
                                 <div class="metric no-border"><span>Бонус</span><span id="sprintBonus2">-- ₽</span></div>
                             </div>
                         </div>
