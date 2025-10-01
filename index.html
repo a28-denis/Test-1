@@ -85,7 +85,7 @@
         .bonus-row { 
             display: flex; 
             justify-content: space-between; 
-            gap: 8px; 
+            gap: 4px; /* Уменьшено расстояние между 1 период и 2 период в 2 раза */
             padding: 4px 0; 
             font-size: 14px; 
         }
@@ -114,11 +114,11 @@
         }
         
         .bonus-label, .total-sum { 
-            font-size: 16px; 
+            font-size: 15px; /* Уменьшено на 1 пункт */
         }
         
         .total-amount { 
-            font-size: 17px; 
+            font-size: 16px; /* Уменьшено на 1 пункт */
             white-space: nowrap; 
         }
         
@@ -358,13 +358,13 @@
                         <h3 class="sprint-title">1-й спринт</h3>
                         <div class="sprint-block">
                             <div class="task-progress-block">
-                                <div class="metric no-border"><span>Выполнено задач</span><span id="tasks1">--</span></div>
+                                <div class="metric no-border"><span>Задачи</span><span id="tasks1">--</span></div>
                                 <div class="progress-bar">
                                     <div class="progress-fill" id="progressFill1" style="width: 0%;"></div>
                                 </div>
                             </div>
                             <div class="epic-bonus-block">
-                                <div class="metric no-border"><span>Закрыто эпиков</span><span id="epics1">--</span></div>
+                                <div class="metric no-border"><span>Эпики</span><span id="epics1">--</span></div>
                                 <div class="metric no-border"><span>Бонус</span><span id="sprintBonus1">-- ₽</span></div>
                             </div>
                         </div>
@@ -373,13 +373,13 @@
                         <h3 class="sprint-title">2-й спринт</h3>
                         <div class="sprint-block">
                             <div class="task-progress-block">
-                                <div class="metric no-border"><span>Выполнено задач</span><span id="tasks2">--</span></div>
+                                <div class="metric no-border"><span>Задачи</span><span id="tasks2">--</span></div>
                                 <div class="progress-bar">
                                     <div class="progress-fill" id="progressFill2" style="width: 0%;"></div>
                                 </div>
                             </div>
                             <div class="epic-bonus-block">
-                                <div class="metric no-border"><span>Закрыто эпиков</span><span id="epics2">--</span></div>
+                                <div class="metric no-border"><span>Эпики</span><span id="epics2">--</span></div>
                                 <div class="metric no-border"><span>Бонус</span><span id="sprintBonus2">-- ₽</span></div>
                             </div>
                         </div>
@@ -408,7 +408,6 @@
             const loader = document.getElementById('loader');
             const content = document.getElementById('content');
             try {
-                // Обновленный URL нового веб-приложения
                 const response = await fetch('https://script.google.com/macros/s/AKfycbxMSaMp8HkUDnKYt9AOR8YEvd3Sg71LydCt4qw8G1RbDL3d2Ujtp9mAbHB-Pvj1t8YB4g/exec');
                 if (!response.ok) throw new Error('Network error');
                 allData = await response.json();
@@ -452,25 +451,21 @@
             document.getElementById('avatar').style.backgroundImage = `url('${data.avatar_url || user.photo_url || 'https://storage.googleapis.com/hr-avatars-yourproject/default.jpg'}')`;
             document.getElementById('oklad').textContent = `${formatNum(data.oklad)} ₽`;
             
-            // Данные для первого спринта
             document.getElementById('tasks1').textContent = `${Number.isFinite(sprint1.tasks_done) ? sprint1.tasks_done : '--'} / ${Number.isFinite(sprint1.total_tasks) ? sprint1.total_tasks : '--'}`;
             document.getElementById('progressFill1').style.width = `${Number.isFinite(sprint1.percent) ? Math.round(sprint1.percent) : 0}%`;
             document.getElementById('progressFill1').textContent = `${Number.isFinite(sprint1.percent) ? Math.round(sprint1.percent) : 0}%`;
             document.getElementById('epics1').textContent = Number.isFinite(sprint1.epics_closed) ? sprint1.epics_closed : '--';
             document.getElementById('sprintBonus1').textContent = `${formatNum(sprint1.bonus)} ₽`;
             
-            // Данные для второго спринта
             document.getElementById('tasks2').textContent = `${Number.isFinite(sprint2.tasks_done) ? sprint2.tasks_done : '--'} / ${Number.isFinite(sprint2.total_tasks) ? sprint2.total_tasks : '--'}`;
             document.getElementById('progressFill2').style.width = `${Number.isFinite(sprint2.percent) ? Math.round(sprint2.percent) : 0}%`;
             document.getElementById('progressFill2').textContent = `${Number.isFinite(sprint2.percent) ? Math.round(sprint2.percent) : 0}%`;
             document.getElementById('epics2').textContent = Number.isFinite(sprint2.epics_closed) ? sprint2.epics_closed : '--';
             document.getElementById('sprintBonus2').textContent = `${formatNum(sprint2.bonus)} ₽`;
             
-            // ОБНОВЛЕННЫЕ ДАННЫЕ: бонусы за периоды теперь берутся из total_bonus
             document.getElementById('bonus1').textContent = `${formatNum(sprint1.total_bonus)} ₽`;
             document.getElementById('bonus2').textContent = `${formatNum(sprint2.total_bonus)} ₽`;
             
-            // Сумма выплат из поля total
             document.getElementById('total').textContent = `${formatNum(data.total)} ₽`;
         }
 
