@@ -11,7 +11,7 @@
             background: #f9f9f9; 
             color: #333; 
             margin: 0; 
-            padding: 0; 
+            padding: 4px; /* Уменьшено с 0 до 4px для меньшего расстояния между общим фоном и блоками */
             display: flex; 
             flex-direction: column; 
             align-items: center; 
@@ -24,9 +24,9 @@
             background: #fff; 
             border-radius: 12px; 
             box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
-            padding: 16px; 
-            width: calc(100vw - 32px); 
-            margin: 16px; 
+            padding: 12px; /* Уменьшено с 16px для меньшего расстояния между общим фоном и блоками */
+            width: calc(100vw - 24px); /* Уменьшено с 32px */
+            margin: 12px; /* Уменьшено с 16px */
             box-sizing: border-box; 
         }
         
@@ -63,7 +63,7 @@
         }
         
         .name { 
-            font-size: 18px; 
+            font-size: 17px; /* Уменьшено с 18px на 1 пункт */
             font-weight: 600; 
             margin: 0; 
         }
@@ -85,7 +85,7 @@
         .bonus-row { 
             display: flex; 
             justify-content: space-between; 
-            gap: 2px; /* Уменьшено расстояние между 1 период и 2 период еще сильнее */
+            gap: 2px; 
             padding: 4px 0; 
             font-size: 14px; 
         }
@@ -114,11 +114,11 @@
         }
         
         .bonus-label, .total-sum { 
-            font-size: 16px; 
+            font-size: 15px; /* Уменьшено с 16px на 1 пункт */
         }
         
         .total-amount { 
-            font-size: 17px; 
+            font-size: 16px; /* Уменьшено с 17px на 1 пункт */
             white-space: nowrap; 
         }
         
@@ -129,7 +129,7 @@
         .period-select { 
             display: flex; 
             gap: 8px; 
-            margin-bottom: 8px; 
+            margin-bottom: 6px; /* Уменьшено с 8px */
         }
         
         select { 
@@ -152,7 +152,7 @@
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            padding: 8px 0; 
+            padding: 6px 0; /* Уменьшено с 8px */
             border-bottom: 1px solid #eee; 
             font-size: 14px; 
         }
@@ -165,7 +165,7 @@
             font-size: 14px;
             display: flex;
             justify-content: space-between;
-            padding-left: 4px; /* Уменьшено с 8px до 4px для более мягкого сдвига */
+            padding-left: 4px;
         }
         
         .oklad-metric span:first-child {
@@ -201,14 +201,14 @@
             flex: 1;
             background: #f9f9f9; 
             border-radius: 8px; 
-            padding: 12px; 
+            padding: 6px; /* Уменьшено с 12px в 2 раза */
             border: 1px solid #eee; 
             display: flex;
             flex-direction: column;
         }
         
         .sprint-block .metric { 
-            padding: 8px 0; 
+            padding: 6px 0; 
         }
         
         .tasks-block { 
@@ -219,15 +219,15 @@
         .task-progress-block { 
             background: #fff; 
             border-radius: 8px; 
-            padding: 12px; 
-            margin-bottom: 8px; 
+            padding: 6px; /* Уменьшено с 12px в 2 раза */
+            margin-bottom: 6px; /* Уменьшено с 8px */
             border: 1px solid #eee;
         }
         
         .epic-bonus-block { 
             background: #fff; 
             border-radius: 8px; 
-            padding: 12px; 
+            padding: 6px; /* Уменьшено с 12px в 2 раза */
             border: 1px solid #eee;
             margin-top: auto;
         }
@@ -304,15 +304,15 @@
         }
         
         @media (max-width: 360px) { 
-            .card { padding: 12px; margin: 8px; width: calc(100vw - 16px); } 
-            .header-section, .sprint-content { flex-direction: column; gap: 8px; } 
-            .header, .period-select { margin-bottom: 8px; } 
+            .card { padding: 8px; margin: 4px; width: calc(100vw - 8px); } 
+            .header-section, .sprint-content { flex-direction: column; gap: 6px; } 
+            .header, .period-select { margin-bottom: 6px; } 
             .avatar { width: 40px; height: 40px; } 
-            .name { font-size: 16px; } 
+            .name { font-size: 15px; } 
             .bonus-row div { min-width: 60px; }
             .total-row { width: 128px; }
             .sprint-title {
-                margin-bottom: 4px;
+                margin-bottom: 2px;
                 margin-left: 4px;
             }
             .oklad-metric {
