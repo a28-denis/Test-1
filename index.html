@@ -22,11 +22,11 @@
         
         .card { 
             background: #fff; 
-            border-radius: 10px; /* Уменьшено с 12px на 2 пункта */
+            border-radius: 8px; /* Еще уменьшено с 10px */
             box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
-            padding: 14px; /* Уменьшено с 16px на 2 пункта */
-            width: calc(100vw - 28px); /* Уменьшено с 32px на 4px */
-            margin: 14px; /* Уменьшено с 16px на 2 пункта */
+            padding: 12px; /* Еще уменьшено с 14px */
+            width: calc(100vw - 24px); /* Еще уменьшено с 28px */
+            margin: 12px; /* Еще уменьшено с 14px */
             box-sizing: border-box; 
         }
         
@@ -39,7 +39,7 @@
         .employee-block { 
             flex: 1; 
             background: #f9f9f9; 
-            border-radius: 6px; /* Уменьшено с 8px на 2 пункта */
+            border-radius: 4px; /* Еще уменьшено с 6px */
             padding: 12px; 
             border: 1px solid #eee; 
         }
@@ -77,7 +77,7 @@
         .total-block { 
             flex: 1; 
             background: #f9f9f9; 
-            border-radius: 6px; /* Уменьшено с 8px на 2 пункта */
+            border-radius: 4px; /* Еще уменьшено с 6px */
             padding: 12px; 
             border: 1px solid #eee; 
         }
@@ -85,20 +85,20 @@
         .bonus-row { 
             display: flex; 
             justify-content: space-between; 
-            gap: 4px; 
+            gap: 2px; /* Еще уменьшено расстояние между колонками */
             padding: 4px 0; 
             font-size: 14px; 
         }
         
         .bonus-row div { 
-            min-width: 70px; 
+            min-width: 65px; /* Уменьшено для компактности */
             text-align: center; 
         }
         
         .total-row { 
             display: flex; 
             justify-content: center; 
-            width: 140px; 
+            width: 130px; /* Уменьшено для компактности */
             padding: 4px 0; 
         }
         
@@ -114,11 +114,11 @@
         }
         
         .bonus-label, .total-sum { 
-            font-size: 15px; /* Уменьшено с 16px на 1 пункт */
+            font-size: 15px; 
         }
         
         .total-amount { 
-            font-size: 16px; /* Уменьшено с 17px на 1 пункт */
+            font-size: 16px; 
             white-space: nowrap; 
         }
         
@@ -136,7 +136,7 @@
             flex: 1; 
             padding: 8px 4px; 
             border: 1px solid #ddd; 
-            border-radius: 6px; /* Уменьшено с 8px на 2 пункта */
+            border-radius: 4px; /* Еще уменьшено с 6px */
             background: #fff; 
             font-size: 14px; 
             text-align: center; 
@@ -165,7 +165,7 @@
             font-size: 14px;
             display: flex;
             justify-content: space-between;
-            padding-left: 0;
+            padding-left: 4px; /* Сдвинуто вправо на 1 пункт */
         }
         
         .oklad-metric span:first-child {
@@ -200,7 +200,7 @@
         .sprint-block { 
             flex: 1;
             background: #f9f9f9; 
-            border-radius: 6px; /* Уменьшено с 8px на 2 пункта */
+            border-radius: 4px; /* Еще уменьшено с 6px */
             padding: 12px; 
             border: 1px solid #eee; 
             display: flex;
@@ -218,7 +218,7 @@
         
         .task-progress-block { 
             background: #fff; 
-            border-radius: 6px; /* Уменьшено с 8px на 2 пункта */
+            border-radius: 4px; /* Еще уменьшено с 6px */
             padding: 12px; 
             margin-bottom: 8px; 
             border: 1px solid #eee;
@@ -226,7 +226,7 @@
         
         .epic-bonus-block { 
             background: #fff; 
-            border-radius: 6px; /* Уменьшено с 8px на 2 пункта */
+            border-radius: 4px; /* Еще уменьшено с 6px */
             padding: 12px; 
             border: 1px solid #eee;
             margin-top: auto;
@@ -304,14 +304,14 @@
         }
         
         @media (max-width: 360px) { 
-            .card { padding: 12px; margin: 8px; width: calc(100vw - 16px); } 
+            .card { padding: 10px; margin: 8px; width: calc(100vw - 16px); } 
             .header-section, .sprint-content { flex-direction: column; gap: 8px; } 
             .header, .period-select { margin-bottom: 8px; } 
             .avatar { width: 40px; height: 40px; } 
             .name { font-size: 15px; } 
             .position { font-size: 12px; } 
-            .bonus-row div { min-width: 55px; }
-            .total-row { width: 110px; }
+            .bonus-row div { min-width: 50px; }
+            .total-row { width: 100px; }
             .sprint-title {
                 margin-bottom: 4px;
                 margin-left: 4px;
