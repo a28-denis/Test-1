@@ -23,38 +23,38 @@
         
         .card { 
             background: #fff; 
-            border-radius: 8px;
+            border-radius: 6px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
-            padding: 12px;
-            width: calc(100vw - 24px);
-            margin: 12px;
+            padding: 8px;
+            width: calc(100vw - 16px);
+            margin: 8px;
             box-sizing: border-box; 
         }
         
         .header-section { 
             display: flex; 
-            gap: 12px; 
-            margin-bottom: 20px; 
+            gap: 8px;
+            margin-bottom: 16px; 
         }
         
         .employee-block { 
             flex: 1; 
             background: #f9f9f9; 
             border-radius: 4px;
-            padding: 12px; 
-            border: 1px solid #eee; 
+            padding: 8px;
+            border: 1px solid #ddd;
         }
         
         .header { 
             display: flex; 
             align-items: center; 
-            gap: 12px; 
-            margin-bottom: 12px; 
+            gap: 8px;
+            margin-bottom: 8px;
         }
         
         .avatar { 
-            width: 48px; 
-            height: 48px; 
+            width: 40px;
+            height: 40px;
             border-radius: 50%; 
             background: #ddd no-repeat center/cover; 
         }
@@ -64,82 +64,84 @@
         }
         
         .name { 
-            font-size: 17px; 
+            font-size: 15px; /* Уменьшено с 16px на 1 пункт */
             font-weight: 600; 
             margin: 0; 
         }
         
         .position { 
-            font-size: 13px; 
+            font-size: 12px;
             color: #666; 
-            margin: 4px 0 0; 
+            margin: 2px 0 0;
         }
         
         .total-block { 
             flex: 1; 
             background: #f9f9f9; 
             border-radius: 4px;
-            padding: 12px; 
-            border: 1px solid #eee; 
+            padding: 8px;
+            border: 1px solid #ddd;
         }
         
         .bonus-row { 
             display: flex; 
             justify-content: space-between; 
             gap: 2px;
-            padding: 4px 0; 
+            padding: 2px 0;
             font-size: 14px; 
         }
         
         .bonus-row div { 
-            min-width: 65px;
+            min-width: 60px;
             text-align: center; 
         }
         
         .total-row { 
             display: flex; 
             justify-content: center; 
-            width: 130px;
-            padding: 4px 0; 
+            width: 120px;
+            padding: 2px 0;
         }
         
         .period-title { 
-            font-size: 11px; 
-            margin-bottom: 2px; 
+            font-size: 10px;
+            margin-bottom: 1px;
             display: block; 
         }
         
         .bonus-amount { 
-            font-size: 15px; 
+            font-size: 14px;
             white-space: nowrap; 
         }
         
         .bonus-label, .total-sum { 
-            font-size: 15px; 
+            font-size: 14px;
         }
         
         .total-amount { 
-            font-size: 16px; 
+            font-size: 15px;
             white-space: nowrap; 
         }
         
         .metric.bonus { 
-            margin-bottom: 4px; 
+            margin-bottom: 2px;
         }
         
         .period-select { 
             display: flex; 
-            gap: 8px; 
-            margin-bottom: 8px; 
+            gap: 6px;
+            margin-bottom: 6px;
+            padding-top: 8px; /* Отступ для разделительной линии */
+            border-top: 1px solid #ddd; /* Разделительная линия между окладом и месяцем/годом */
         }
         
         select { 
             flex: 1; 
-            padding: 8px 4px; 
+            padding: 6px 2px;
             border: 1px solid #ddd; 
             border-radius: 4px;
             background: #fff; 
-            font-size: 13px; /* Уменьшено с 14px на 1 пункт */
+            font-size: 12px;
             text-align: center; 
             font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
         }
@@ -154,9 +156,9 @@
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            padding: 8px 0; 
+            padding: 6px 0;
             border-bottom: 1px solid #eee; 
-            font-size: 14px; 
+            font-size: 13px;
         }
         
         .metric.no-border { 
@@ -164,23 +166,24 @@
         }
         
         .oklad-metric {
-            font-size: 14px;
+            font-size: 13px;
             display: flex;
             justify-content: space-between;
-            padding-left: 4px;
+            padding-left: 2px;
+            margin-bottom: 8px; /* Отступ для разделительной линии */
         }
         
         .oklad-metric span:first-child {
-            margin-right: 8px;
+            margin-right: 6px;
         }
         
         .sprint-container {
-            margin-top: 4px;
+            margin-top: 2px;
         }
         
         .sprint-content {
             display: flex;
-            gap: 12px;
+            gap: 8px;
         }
         
         .sprint-block-wrapper {
@@ -190,11 +193,11 @@
         }
         
         .sprint-title { 
-            font-size: 14px; 
+            font-size: 13px;
             font-weight: 600; 
             color: #333;
             text-align: left;
-            margin: 0 0 6px 8px;
+            margin: 0 0 4px 6px;
             padding: 0;
             align-self: flex-start;
         }
@@ -203,14 +206,14 @@
             flex: 1;
             background: #f9f9f9; 
             border-radius: 4px;
-            padding: 12px; 
-            border: 1px solid #eee; 
+            padding: 8px;
+            border: 1px solid #ddd;
             display: flex;
             flex-direction: column;
         }
         
         .sprint-block .metric { 
-            padding: 8px 0; 
+            padding: 6px 0;
         }
         
         .tasks-block { 
@@ -221,40 +224,45 @@
         .task-progress-block { 
             background: #fff; 
             border-radius: 4px;
-            padding: 12px; 
-            margin-bottom: 8px; 
-            border: 1px solid #eee;
+            padding: 8px;
+            margin-bottom: 6px;
+            border: 1px solid #ddd;
         }
         
         .epic-bonus-block { 
             background: #fff; 
             border-radius: 4px;
-            padding: 12px; 
-            border: 1px solid #eee;
+            padding: 8px;
+            border: 1px solid #ddd;
             margin-top: auto;
         }
         
         .progress-bar { 
-            height: 12px; 
+            height: 14px; /* Увеличено с 10px для большей толщины */
             background: #e0e0e0; 
-            border-radius: 6px; 
+            border-radius: 7px; /* Увеличено с 5px */
             position: relative; 
-            margin-top: 4px; 
+            margin-top: 2px;
         }
         
         .progress-fill { 
             height: 100%; 
             background: #674ea6; 
-            border-radius: 6px; 
+            border-radius: 7px; /* Увеличено с 5px */
             position: absolute; 
             top: 0; 
             left: 0; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
-            font-size: 12px; 
+            font-size: 10px;
             color: #fff; 
-            min-width: 20px; 
+            min-width: 18px;
+        }
+        
+        .bonus-divider {
+            border-top: 1px solid #ddd; /* Разделительная линия между периодами и выплатой */
+            margin: 4px 0; /* Отступы вокруг разделительной линии */
         }
         
         .loader { 
@@ -297,29 +305,38 @@
             .metric { border-color: #444; } 
             .loader { background: linear-gradient(135deg, #1c1c1e 0%, #2c2c2e 100%); } 
             .spinner { border-color: #3a3a3c; border-top-color: #674ea6; } 
-            .employee-block, .total-block, .sprint-block { background: #3a3a3c; border-color: #555; } 
+            .employee-block, .total-block, .sprint-block { background: #3a3a3c; border-color: #666; } 
             .progress-bar { background: #555; } 
             .progress-fill { background: #674ea6; } 
             .sprint-title { color: #fff; }
-            .task-progress-block { background: #3a3a3c; border-color: #555; }
-            .epic-bonus-block { background: #3a3a3c; border-color: #555; }
+            .task-progress-block { background: #3a3a3c; border-color: #666; }
+            .epic-bonus-block { background: #3a3a3c; border-color: #666; }
+            .period-select { border-top-color: #666; } /* Разделительная линия в темной теме */
+            .bonus-divider { border-top-color: #666; } /* Разделительная линия в темной теме */
         }
         
         @media (max-width: 360px) { 
-            .card { padding: 10px; margin: 8px; width: calc(100vw - 16px); } 
-            .header-section, .sprint-content { flex-direction: column; gap: 8px; } 
-            .header, .period-select { margin-bottom: 8px; } 
-            .avatar { width: 40px; height: 40px; } 
-            .name { font-size: 15px; } 
-            .position { font-size: 12px; } 
-            .bonus-row div { min-width: 50px; }
-            .total-row { width: 100px; }
+            .card { padding: 6px; margin: 4px; width: calc(100vw - 8px); } 
+            .header-section, .sprint-content { flex-direction: column; gap: 6px; } 
+            .header, .period-select { margin-bottom: 6px; } 
+            .avatar { width: 36px; height: 36px; } 
+            .name { font-size: 14px; } 
+            .position { font-size: 11px; } 
+            .bonus-row div { min-width: 45px; }
+            .total-row { width: 90px; }
             .sprint-title {
-                margin-bottom: 4px;
-                margin-left: 4px;
+                margin-bottom: 2px;
+                margin-left: 2px;
             }
             .oklad-metric {
-                font-size: 14px;
+                font-size: 12px;
+            }
+            .progress-bar {
+                height: 12px; /* Немного меньше на очень маленьких экранах */
+                border-radius: 6px;
+            }
+            .progress-fill {
+                border-radius: 6px;
             }
         }
     </style>
@@ -353,6 +370,7 @@
                             <div><span class="period-title">2 период</span><br><span class="bonus-amount" id="bonus2">-- ₽</span></div>
                         </div>
                     </div>
+                    <div class="bonus-divider"></div> <!-- Разделительная линия -->
                     <div class="metric no-border">
                         <span class="total-sum">Выплата</span>
                         <div class="total-row">
