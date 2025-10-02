@@ -18,14 +18,16 @@
         .name { font-size: 17px; font-weight: 600; margin: 0; }
         .position { font-size: 15px; color: #666; margin: 4px 0 0; }
         .total-block { display: flex; flex-direction: column; justify-content: space-between; }
-        .metric.no-border.bonus { margin-bottom: 4px; }
+        .metric.no-border.bonus { margin-bottom: 4px; position: relative; }
         .bonus-label, .total-sum { font-size: 15px; }
-        .bonus-row { display: flex; justify-content: space-between; gap: 2px; padding: 4px 0; font-size: 14px; }
+        .bonus-row { display: flex; justify-content: space-between; gap: 0; padding: 4px 0; font-size: 14px; position: relative; }
+        .bonus-row::after { content: ''; position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; background: #eee; }
         .bonus-row div { min-width: 80px; text-align: center; }
-        .period-title { font-size: 11px; margin-bottom: 2px; display: block; }
+        .period-title { font-size: 11px; margin-bottom: 6px; display: block; }
         .bonus-amount { font-size: 15px; white-space: nowrap; }
         .total-row { display: flex; justify-content: center; width: 168px; padding: 4px 0; }
         .total-amount { font-size: 16px; font-weight: 600; white-space: nowrap; }
+        .bonus-divider { border-top: 1px solid #eee; margin: 4px 0; }
         .period-select { display: flex; gap: 8px; margin-bottom: 6px; border-top: 1px solid #eee; padding-top: 8px; }
         select { flex: 1; padding: 8px 4px; border: 1px solid #ddd; border-radius: 8px; background: #fff; 
             font-size: 14px; text-align: center; font-family: 'Manrope', sans-serif; }
@@ -72,7 +74,7 @@
             .progress-fill { background: #674ea6; } 
             .sprint-title { color: #fff; }
             .task-progress-block, .epic-bonus-block { background: #3a3a3c; border-color: #555; }
-            .period-select { border-color: #555; }
+            .period-select, .bonus-divider, .bonus-row::after { border-color: #555; background: #555; }
         }
         
         @media (max-width: 360px) { 
@@ -109,10 +111,11 @@
                     <div class="metric no-border bonus">
                         <span class="bonus-label">Бонус</span>
                         <div class="bonus-row">
-                            <div><span class="period-title">1 период</span><br><span class="bonus-amount" id="bonus1">-- ₽</span></div>
-                            <div><span class="period-title">2 период</span><br><span class="bonus-amount" id="bonus2">-- ₽</span></div>
+                            <div><span class="period-title">1 период</span><span class="bonus-amount" id="bonus1">-- ₽</span></div>
+                            <div><span class="period-title">2 период</span><span class="bonus-amount" id="bonus2">-- ₽</span></div>
                         </div>
                     </div>
+                    <div class="bonus-divider"></div>
                     <div class="metric no-border">
                         <span class="total-sum">Выплата</span>
                         <div class="total-row">
