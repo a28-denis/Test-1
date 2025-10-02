@@ -7,146 +7,327 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Manrope', sans-serif; background: #f9f9f9; color: #333; margin: 0; padding: 4px; 
-            display: flex; flex-direction: column; align-items: center; min-height: 100vh; font-size: 14px; overflow-x: hidden; }
-        .card { background: #fff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); padding: 12px; 
-            width: calc(100vw - 24px); margin: 12px; box-sizing: border-box; }
-        .header-section { display: flex; gap: 12px; margin-bottom: 20px; }
-        .employee-block, .total-block { flex: 1; background: #f9f9f9; border-radius: 8px; padding: 12px; border: 1px solid #eee; }
-        .header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
-        .avatar { width: 48px; height: 48px; border-radius: 50%; background: #ddd no-repeat center/cover; }
-        .name { font-size: 16px; font-weight: 600; margin: 0; }
-        .position { font-size: 14px; color: #666; margin: 4px 0 0; }
-        .total-block { display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
-        .bonus-row { display: flex; justify-content: space-around; gap: 0; padding: 4px 0; font-size: 14px; position: relative; }
-        .bonus-row::after { content: ''; position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; background: #eee; z-index: 1; }
-        .bonus-row div { min-width: 80px; text-align: center; position: relative; z-index: 2; }
-        .total-upper-row { display: flex; justify-content: space-around; gap: 0; padding: 4px 0; font-size: 14px; }
-        .period-title { font-size: 11px; margin-bottom: 8px; display: block; font-weight: 500; line-height: 1.3; }
-        .bonus-amount { font-size: 14px; white-space: nowrap; }
-        .total-amount { font-size: 15px; white-space: nowrap; }
-        .period-select { display: flex; gap: 8px; margin-bottom: 8px; border-top: 1px solid #eee; padding-top: 8px; }
-        select { flex: 1; padding: 8px 4px; border: 1px solid #ddd; border-radius: 8px; background: #fff; 
-            font-size: 13px; text-align: center; font-family: 'Manrope', sans-serif; }
-        .metric { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; 
-            border-bottom: 1px solid #eee; font-size: 15px; }
+        :root {
+            --card-gap: min(2vw, 12px);
+            --card-padding: min(3vw, 16px);
+            --font-base: clamp(13px, 3.5vw, 16px);
+            --font-small: clamp(11px, 3vw, 13px);
+            --font-xsmall: clamp(10px, 2.5vw, 11px);
+        }
+        
+        body { 
+            font-family: 'Manrope', sans-serif; 
+            background: #f9f9f9; 
+            color: #333; 
+            margin: 0; 
+            padding: 8px; 
+            min-height: 100vh; 
+            font-size: var(--font-base);
+            overflow-x: hidden; 
+        }
+        
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: var(--card-gap);
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .card { 
+            background: #fff; 
+            border-radius: 12px; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+            padding: var(--card-padding);
+            border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .employee-block { grid-column: 1; }
+        .total-block { grid-column: 2; }
+        .sprint-1 { grid-column: 1; grid-row: 2; }
+        .sprint-2 { grid-column: 2; grid-row: 2; }
+        
+        .header { 
+            display: flex; 
+            align-items: center; 
+            gap: min(3vw, 12px); 
+            margin-bottom: min(3vw, 12px); 
+        }
+        
+        .avatar { 
+            width: min(12vw, 48px); 
+            height: min(12vw, 48px); 
+            border-radius: 50%; 
+            background: #ddd no-repeat center/cover; 
+            flex-shrink: 0;
+        }
+        
+        .info { 
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .name { 
+            font-size: var(--font-base); 
+            font-weight: 600; 
+            margin: 0; 
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .position { 
+            font-size: var(--font-small); 
+            color: #666; 
+            margin: 2px 0 0; 
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .metric { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: min(2vw, 8px) 0; 
+            border-bottom: 1px solid #eee; 
+            font-size: var(--font-small);
+        }
+        
         .metric.no-border { border-bottom: none; }
-        .oklad-metric { font-size: 14px; display: flex; justify-content: space-between; padding-left: 4px; }
-        .sprint-container { margin-top: 4px; }
-        .sprint-content { display: flex; gap: 12px; }
-        .sprint-block-wrapper { flex: 1; display: flex; flex-direction: column; }
-        .sprint-title { font-size: 14px; font-weight: 600; color: #333; text-align: left; margin: 0 0 6px 8px; 
-            padding: 0; align-self: flex-start; }
-        .sprint-block { flex: 1; background: #f9f9f9; border-radius: 8px; padding: 6px; border: 1px solid #eee; 
-            display: flex; flex-direction: column; }
-        .task-progress-block, .epic-bonus-block { background: #fff; border-radius: 8px; padding: 12px; border: 1px solid #eee; }
-        .task-progress-block { margin-bottom: 9px; }
-        .epic-bonus-block { margin-top: auto; }
-        .progress-bar { height: 12px; background: #e0e0e0; border-radius: 6px; position: relative; margin-top: 4px; }
-        .progress-fill { height: 100%; background: #674ea6; border-radius: 6px; position: absolute; top: 0; left: 0; 
-            display: flex; align-items: center; justify-content: center; font-size: 13px; color: #fff; min-width: 20px; }
-        .bonus-divider { border-top: 1px solid #eee; margin: 4px 0; }
-        .loader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background: linear-gradient(135deg, #f9f9f9 0%, #e0e0e0 100%); backdrop-filter: blur(4px); 
-            display: flex; align-items: center; justify-content: center; z-index: 100; }
-        .spinner { width: 40px; height: 40px; border: 3px solid #e3f2fd; border-top: 3px solid #674ea6; 
-            border-radius: 50%; animation: spin 1s linear infinite; }
+        
+        .period-select { 
+            display: flex; 
+            gap: min(2vw, 8px); 
+            margin-top: auto;
+            border-top: 1px solid #eee;
+            padding-top: min(2vw, 8px);
+        }
+        
+        select { 
+            flex: 1; 
+            padding: min(2vw, 8px) min(1vw, 4px); 
+            border: 1px solid #ddd; 
+            border-radius: 8px; 
+            background: #fff; 
+            font-size: var(--font-small); 
+            text-align: center; 
+            font-family: 'Manrope', sans-serif;
+        }
+        
+        .bonus-row { 
+            display: flex; 
+            justify-content: space-around; 
+            gap: 0;
+            padding: min(2vw, 8px) 0;
+            position: relative;
+        }
+        
+        .bonus-row::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 1px;
+            background: #eee;
+            z-index: 1;
+        }
+        
+        .bonus-row div { 
+            text-align: center; 
+            position: relative;
+            z-index: 2;
+            flex: 1;
+        }
+        
+        .period-title { 
+            font-size: var(--font-xsmall); 
+            margin-bottom: min(2vw, 8px); 
+            display: block; 
+            font-weight: 500; 
+            line-height: 1.3; 
+        }
+        
+        .bonus-amount { 
+            font-size: var(--font-small); 
+            white-space: nowrap; 
+        }
+        
+        .bonus-divider {
+            border-top: 1px solid #eee; 
+            margin: min(1vw, 4px) 0;
+        }
+        
+        .total-row {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: auto;
+            padding-top: min(2vw, 8px);
+        }
+        
+        .total-amount { 
+            font-size: var(--font-base); 
+            white-space: nowrap; 
+            font-weight: 600;
+        }
+        
+        .sprint-title { 
+            font-size: var(--font-small); 
+            font-weight: 600; 
+            color: #333;
+            text-align: left;
+            margin: 0 0 min(2vw, 8px) 0;
+            padding: 0;
+        }
+        
+        .progress-bar { 
+            height: min(3vw, 12px); 
+            background: #e0e0e0; 
+            border-radius: 6px; 
+            position: relative; 
+            margin-top: min(1vw, 4px); 
+        }
+        
+        .progress-fill { 
+            height: 100%; 
+            background: #674ea6; 
+            border-radius: 6px; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: var(--font-xsmall); 
+            color: #fff; 
+            min-width: 20px; 
+        }
+        
+        .loader { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: linear-gradient(135deg, #f9f9f9 0%, #e0e0e0 100%); 
+            backdrop-filter: blur(4px); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            z-index: 100; 
+        }
+        
+        .spinner { 
+            width: 40px; 
+            height: 40px; 
+            border: 3px solid #e3f2fd; 
+            border-top: 3px solid #674ea6; 
+            border-radius: 50%; 
+            animation: spin 1s linear infinite; 
+        }
+        
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        
         .content { display: none; }
         
         @media (prefers-color-scheme: dark) { 
             body { background: #1c1c1e; color: #fff; } 
-            .card { background: #2c2c2e; } 
+            .card { background: #2c2c2e; border-color: #555; } 
             .position { color: #aaa; } 
             select { background: #3a3a3c; color: #fff; border-color: #555; } 
             .metric { border-color: #444; } 
             .loader { background: linear-gradient(135deg, #1c1c1e 0%, #2c2c2e 100%); } 
             .spinner { border-color: #3a3a3c; border-top-color: #674ea6; } 
-            .employee-block, .total-block, .sprint-block { background: #3a3a3c; border-color: #555; } 
             .progress-bar { background: #555; } 
-            .progress-fill { background: #674ea6; } 
             .sprint-title { color: #fff; }
-            .task-progress-block, .epic-bonus-block { background: #3a3a3c; border-color: #555; }
             .bonus-divider, .period-select, .bonus-row::after { border-color: #555; background: #555; }
         }
         
-        @media (max-width: 360px) { 
-            .card { padding: 8px; margin: 6px; width: calc(100vw - 12px); } 
-            .header-section, .sprint-content { flex-direction: column; gap: 8px; } 
-            .header, .period-select { margin-bottom: 8px; } 
-            .avatar { width: 40px; height: 40px; } 
-            .name { font-size: 15px; } 
-            .bonus-row div { min-width: 60px; }
-            .sprint-title { margin-bottom: 4px; margin-left: 4px; }
+        @media (max-width: 480px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto auto;
+            }
+            
+            .employee-block { grid-column: 1; grid-row: 1; }
+            .total-block { grid-column: 1; grid-row: 2; }
+            .sprint-1 { grid-column: 1; grid-row: 3; }
+            .sprint-2 { grid-column: 1; grid-row: 4; }
+        }
+        
+        @media (max-width: 320px) {
+            :root {
+                --card-padding: 12px;
+            }
+            
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .info {
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
     <div class="loader" id="loader"><div class="spinner"></div></div>
     <div class="content" id="content">
-        <div class="card">
-            <div class="header-section">
-                <div class="employee-block">
-                    <div class="header">
-                        <div class="avatar" id="avatar"></div>
-                        <div class="info">
-                            <h2 class="name" id="name">А28-Денис</h2>
-                            <p class="position">Аналитик</p>
-                        </div>
-                    </div>
-                    <div class="metric no-border oklad-metric"><span>Оклад</span><span id="oklad">-- ₽</span></div>
-                    <div class="period-select">
-                        <select id="monthSelect"></select>
-                        <select id="yearSelect"></select>
+        <div class="dashboard">
+            <div class="card employee-block">
+                <div class="header">
+                    <div class="avatar" id="avatar"></div>
+                    <div class="info">
+                        <h2 class="name" id="name">А28-Денис</h2>
+                        <p class="position">Аналитик</p>
                     </div>
                 </div>
-                <div class="total-block">
-                    <div class="bonus-row">
-                        <div><span class="period-title">Бонус<br>1 период</span><span class="bonus-amount" id="bonus1">-- ₽</span></div>
-                        <div><span class="period-title">Бонус<br>2 период</span><span class="bonus-amount" id="bonus2">-- ₽</span></div>
-                    </div>
-                    <div class="bonus-divider"></div>
-                    <div class="total-upper-row">
-                        <div style="text-align: center;"><span class="total-sum">Выплата</span></div>
-                        <div style="text-align: center;"><span class="total-amount" id="total">-- ₽</span></div>
-                    </div>
+                <div class="metric no-border"><span>Оклад</span><span id="oklad">-- ₽</span></div>
+                <div class="period-select">
+                    <select id="monthSelect"></select>
+                    <select id="yearSelect"></select>
                 </div>
             </div>
             
-            <div class="sprint-container">
-                <div class="sprint-content">
-                    <div class="sprint-block-wrapper">
-                        <h3 class="sprint-title">1-й спринт</h3>
-                        <div class="sprint-block">
-                            <div class="task-progress-block">
-                                <div class="metric no-border"><span>Задачи</span><span id="tasks1">--</span></div>
-                                <div class="progress-bar"><div class="progress-fill" id="progressFill1" style="width: 0%;"></div></div>
-                            </div>
-                            <div class="epic-bonus-block">
-                                <div class="metric no-border"><span>Эпики</span><span id="epics1">--</span></div>
-                                <div class="metric no-border"><span>Бонус</span><span id="sprintBonus1">-- ₽</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sprint-block-wrapper">
-                        <h3 class="sprint-title">2-й спринт</h3>
-                        <div class="sprint-block">
-                            <div class="task-progress-block">
-                                <div class="metric no-border"><span>Задачи</span><span id="tasks2">--</span></div>
-                                <div class="progress-bar"><div class="progress-fill" id="progressFill2" style="width: 0%;"></div></div>
-                            </div>
-                            <div class="epic-bonus-block">
-                                <div class="metric no-border"><span>Эпики</span><span id="epics2">--</span></div>
-                                <div class="metric no-border"><span>Бонус</span><span id="sprintBonus2">-- ₽</span></div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="card total-block">
+                <div class="bonus-row">
+                    <div><span class="period-title">Бонус<br>1 период</span><span class="bonus-amount" id="bonus1">-- ₽</span></div>
+                    <div><span class="period-title">Бонус<br>2 период</span><span class="bonus-amount" id="bonus2">-- ₽</span></div>
                 </div>
+                <div class="bonus-divider"></div>
+                <div class="total-row">
+                    <span class="total-sum">Выплата</span>
+                    <span class="total-amount" id="total">-- ₽</span>
+                </div>
+            </div>
+            
+            <div class="card sprint-1">
+                <h3 class="sprint-title">1-й спринт</h3>
+                <div class="metric no-border"><span>Задачи</span><span id="tasks1">--</span></div>
+                <div class="progress-bar"><div class="progress-fill" id="progressFill1" style="width: 0%;"></div></div>
+                <div class="metric no-border"><span>Эпики</span><span id="epics1">--</span></div>
+                <div class="metric no-border"><span>Бонус</span><span id="sprintBonus1">-- ₽</span></div>
+            </div>
+            
+            <div class="card sprint-2">
+                <h3 class="sprint-title">2-й спринт</h3>
+                <div class="metric no-border"><span>Задачи</span><span id="tasks2">--</span></div>
+                <div class="progress-bar"><div class="progress-fill" id="progressFill2" style="width: 0%;"></div></div>
+                <div class="metric no-border"><span>Эпики</span><span id="epics2">--</span></div>
+                <div class="metric no-border"><span>Бонус</span><span id="sprintBonus2">-- ₽</span></div>
             </div>
         </div>
     </div>
 
     <script>
+        // JavaScript код остается без изменений
         Telegram.WebApp.ready();
         const webApp = Telegram.WebApp;
         const user = webApp.initDataUnsafe.user || {};
