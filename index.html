@@ -15,7 +15,7 @@
         .employee-block, .total-block { background: #f9f9f9; border-radius: 8px; padding: 12px; border: 1px solid #eee; }
         .header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
         .avatar { width: 48px; height: 48px; border-radius: 50%; background: #ddd no-repeat center/cover; }
-        .name { font-size: 17px; font-weight: 600; margin: 0; }
+        .name { font-size: 18px; font-weight: 600; margin: 0; }
         .position { font-size: 15px; color: #666; margin: 4px 0 0; }
         .total-block { display: flex; flex-direction: column; justify-content: space-between; }
         .metric.no-border.bonus { margin-bottom: 4px; position: relative; }
@@ -28,7 +28,7 @@
         .total-row { display: flex; justify-content: center; width: 168px; padding: 4px 0; }
         .total-amount { font-size: 17px; font-weight: 600; white-space: nowrap; }
         .bonus-divider { border-top: 1px solid #eee; margin: 4px 0; }
-        .period-select { display: flex; gap: 8px; margin-bottom: 6px; border-top: 1px solid #eee; padding-top: 8px; }
+        .period-select { display: flex; gap: 8px; margin-bottom: 6px; padding-top: 8px; }
         select { flex: 1; padding: 8px 4px; border: 1px solid #ddd; border-radius: 8px; background: #fff; 
             font-size: 14px; text-align: center; font-family: 'Manrope', sans-serif; }
         .metric { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; 
@@ -40,9 +40,9 @@
         .sprint-block-wrapper { flex: 1; display: flex; flex-direction: column; }
         .sprint-title { font-size: 14px; font-weight: 600; color: #333; text-align: left; margin: 0 0 6px 8px; 
             padding: 0; align-self: flex-start; }
-        .sprint-block { flex: 1; background: #f9f9f9; border-radius: 8px; padding: 6px; border: 1px solid #eee; 
+        .sprint-block { flex: 1; background: #f9f9f9; border-radius: 8px; padding: 8px; border: 1px solid #eee; 
             display: flex; flex-direction: column; }
-        .task-progress-block, .epic-bonus-block { background: #fff; border-radius: 8px; padding: 12px; border: 1px solid #eee; }
+        .task-progress-block, .epic-bonus-block { background: #fff; border-radius: 8px; padding: 14px; border: 1px solid #eee; }
         .task-progress-block { margin-bottom: 9px; }
         .epic-bonus-block { margin-top: auto; }
         .progress-bar { height: 12px; background: #e0e0e0; border-radius: 6px; position: relative; margin-top: 4px; }
@@ -74,14 +74,14 @@
             .progress-fill { background: #674ea6; } 
             .sprint-title { color: #fff; }
             .task-progress-block, .epic-bonus-block { background: #3a3a3c; border-color: #555; }
-            .period-select, .bonus-divider, .bonus-row::after { border-color: #555; background: #555; }
+            .bonus-divider, .bonus-row::after { border-color: #555; background: #555; }
         }
         
         @media (max-width: 360px) { 
             .card { padding: 8px; margin: 6px; width: calc(100vw - 12px); } 
             .header, .period-select { margin-bottom: 8px; } 
             .avatar { width: 40px; height: 40px; } 
-            .name { font-size: 16px; } 
+            .name { font-size: 17px; } 
             .bonus-row div { min-width: 60px; }
             .total-row { width: 128px; }
             .sprint-title { margin-bottom: 4px; margin-left: 4px; }
