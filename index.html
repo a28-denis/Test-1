@@ -7,16 +7,16 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Manrope', sans-serif; background: #f8fafc; color: #1e293b; margin: 0; padding: 4px; 
+        body { font-family: 'Manrope', sans-serif; background: #f1f5f9; color: #1e293b; margin: 0; padding: 4px; 
             display: flex; flex-direction: column; align-items: center; min-height: 100vh; font-size: 15px; overflow-x: hidden; }
         .card { background: #ffffff; border-radius: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); padding: 16px; 
             width: calc(100vw - 24px); margin: 12px; box-sizing: border-box; }
         .header-section { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
-        .employee-block, .total-block { background: #ffffff; border-radius: 12px; padding: 16px; border: none; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-        .header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+        .employee-block, .total-block { background: #f8fafc; border-radius: 12px; padding: 16px; border: none; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
         .avatar { width: 48px; height: 48px; border-radius: 50%; background: #ddd no-repeat center/cover; }
         .name { font-size: 18px; font-weight: 600; margin: 0; }
-        .position { font-size: 15px; color: #64748b; margin: 4px 0 0; }
+        .position { font-size: 15px; color: #64748b; margin: 2px 0 0; }
         .total-block { display: flex; flex-direction: column; justify-content: space-between; }
         .metric.no-border.bonus { margin-bottom: 4px; position: relative; }
         .bonus-label, .total-sum { font-size: 17px; }
@@ -28,11 +28,20 @@
         .total-row { display: flex; justify-content: center; width: 168px; padding: 4px 0; }
         .total-amount { font-size: 19px; font-weight: 600; white-space: nowrap; }
         .bonus-divider { border-top: 1px solid #e2e8f0; margin: 4px 0; }
-        .period-select { display: flex; gap: 8px; margin-bottom: 6px; padding-top: 8px; border-top: 1px solid #e2e8f0; }
-        select { flex: 1; padding: 10px 8px; border: 1px solid #e2e8f0; border-radius: 10px; background: #f8fafc; 
-            font-size: 14px; text-align: center; font-family: 'Manrope', sans-serif; outline: none; transition: all 0.2s; }
-        select:focus { outline: none; border-color: #674ea6; background: #ffffff; }
-        .metric { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; 
+        .period-select { display: flex; gap: 8px; margin-bottom: 6px; padding-top: 8px; border-top: 1px solid #e2e8f0; background: transparent; }
+        select { flex: 1; padding: 10px 8px; border: none; border-radius: 12px; background: #ffffff; 
+            font-size: 14px; text-align: center; font-family: 'Manrope', sans-serif; outline: none; 
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 8.825L1.175 4 2.238 2.938 6 6.7l3.763-3.762L10.825 4z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 12px;
+        }
+        select:focus { outline: none; background: #ffffff; box-shadow: 0 0 0 2px #e2e8f0; }
+        .metric { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; 
             border-bottom: 1px solid #e2e8f0; font-size: 15px; }
         .metric.no-border { border-bottom: none; }
         .oklad-metric { font-size: 15px; display: flex; justify-content: space-between; padding-left: 4px; }
@@ -42,17 +51,17 @@
         .sprint-block-wrapper { flex: 1; display: flex; flex-direction: column; }
         .sprint-title { font-size: 14px; font-weight: 600; color: #1e293b; text-align: left; margin: 0 0 4px 8px; 
             padding: 0; align-self: flex-start; }
-        .sprint-block { flex: 1; background: #ffffff; border-radius: 12px; padding: 12px; border: none; box-shadow: 0 1px 3px rgba(0,0,0,0.1); 
+        .sprint-block { flex: 1; background: #f8fafc; border-radius: 12px; padding: 12px; border: none; box-shadow: 0 1px 3px rgba(0,0,0,0.1); 
             display: flex; flex-direction: column; }
-        .task-progress-block, .epic-bonus-block { background: #f8fafc; border-radius: 10px; padding: 14px; border: none; }
+        .task-progress-block, .epic-bonus-block { background: #ffffff; border-radius: 10px; padding: 12px; border: none; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
         .task-progress-block { margin-bottom: 8px; }
         .epic-bonus-block { margin-top: auto; }
-        .epic-bonus-block .metric { padding: 6px 0; }
+        .epic-bonus-block .metric { padding: 5px 0; font-size: 14px; }
         .progress-bar { height: 15px; background: #e2e8f0; border-radius: 7.5px; position: relative; margin-top: 2px; }
         .progress-fill { height: 100%; background: #674ea6; border-radius: 7.5px; position: absolute; top: 0; left: 0; 
             display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; min-width: 20px; }
         .loader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background: #f8fafc; backdrop-filter: blur(4px); 
+            background: #f1f5f9; backdrop-filter: blur(4px); 
             display: flex; align-items: center; justify-content: center; z-index: 100; }
         .spinner { width: 40px; height: 40px; border: 3px solid #e2e8f0; border-top: 3px solid #674ea6; 
             border-radius: 50%; animation: spin 1s linear infinite; }
@@ -68,8 +77,10 @@
             body { background: #0f172a; color: #f1f5f9; } 
             .card { background: #1e293b; box-shadow: 0 2px 8px rgba(0,0,0,0.2); } 
             .position { color: #94a3b8; } 
-            select { background: #334155; color: #f1f5f9; border-color: #475569; } 
-            select:focus { outline: none; border-color: #674ea6; background: #475569; }
+            select { background: #334155; color: #f1f5f9; border: none; 
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2394a3b8' d='M6 8.825L1.175 4 2.238 2.938 6 6.7l3.763-3.762L10.825 4z'/%3E%3C/svg%3E"); 
+                box-shadow: 0 1px 3px rgba(0,0,0,0.2); } 
+            select:focus { outline: none; background: #475569; box-shadow: 0 0 0 2px #475569; }
             .metric { border-color: #334155; } 
             .loader { background: #0f172a; } 
             .spinner { border-color: #334155; border-top-color: #674ea6; } 
@@ -77,7 +88,7 @@
             .progress-bar { background: #475569; } 
             .progress-fill { background: #674ea6; } 
             .sprint-title { color: #f1f5f9; }
-            .task-progress-block, .epic-bonus-block { background: #334155; border: none; }
+            .task-progress-block, .epic-bonus-block { background: #334155; border: none; box-shadow: 0 1px 2px rgba(0,0,0,0.1); }
             .bonus-divider, .bonus-row::after, .period-select { border-color: #334155; background: #334155; }
             .bonus-label, .total-sum { color: #f1f5f9; }
             .period-title { color: #cbd5e1; }
