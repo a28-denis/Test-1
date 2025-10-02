@@ -8,11 +8,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --card-gap: min(2vw, 12px);
-            --card-padding: min(3vw, 16px);
-            --font-base: clamp(13px, 3.5vw, 16px);
-            --font-small: clamp(11px, 3vw, 13px);
-            --font-xsmall: clamp(10px, 2.5vw, 11px);
+            --gap: 12px;
+            --padding: 12px;
+            --radius: 12px;
+            --font-base: 14px;
+            --font-sm: 13px;
+            --font-xs: 11px;
         }
         
         body { 
@@ -23,56 +24,49 @@
             padding: 8px; 
             min-height: 100vh; 
             font-size: var(--font-base);
-            overflow-x: hidden; 
-        }
-        
-        .dashboard {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: auto auto;
-            gap: var(--card-gap);
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
         }
         
         .card { 
             background: #fff; 
-            border-radius: 12px; 
+            border-radius: var(--radius); 
             box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
-            padding: var(--card-padding);
+            padding: var(--padding);
+            margin-bottom: var(--gap);
             border: 1px solid #eee;
-            display: flex;
-            flex-direction: column;
         }
         
-        .employee-block { grid-column: 1; }
-        .total-block { grid-column: 2; }
-        .sprint-1 { grid-column: 1; grid-row: 2; }
-        .sprint-2 { grid-column: 2; grid-row: 2; }
+        .header-section { 
+            display: flex; 
+            gap: var(--gap); 
+            margin-bottom: var(--gap); 
+        }
+        
+        .employee-block, .total-block { 
+            flex: 1; 
+            background: #f9f9f9; 
+            border-radius: 8px; 
+            padding: var(--padding); 
+            border: 1px solid #eee; 
+            min-width: 0;
+        }
         
         .header { 
             display: flex; 
             align-items: center; 
-            gap: min(3vw, 12px); 
-            margin-bottom: min(3vw, 12px); 
+            gap: var(--gap); 
+            margin-bottom: var(--gap); 
         }
         
         .avatar { 
-            width: min(12vw, 48px); 
-            height: min(12vw, 48px); 
+            width: 48px; 
+            height: 48px; 
             border-radius: 50%; 
             background: #ddd no-repeat center/cover; 
             flex-shrink: 0;
         }
         
-        .info { 
-            flex: 1;
-            min-width: 0;
-        }
-        
         .name { 
-            font-size: var(--font-base); 
+            font-size: 16px; 
             font-weight: 600; 
             margin: 0; 
             white-space: nowrap;
@@ -81,50 +75,22 @@
         }
         
         .position { 
-            font-size: var(--font-small); 
+            font-size: var(--font-sm); 
             color: #666; 
             margin: 2px 0 0; 
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
         }
         
-        .metric { 
+        .total-block { 
             display: flex; 
+            flex-direction: column; 
             justify-content: space-between; 
-            align-items: center; 
-            padding: min(2vw, 8px) 0; 
-            border-bottom: 1px solid #eee; 
-            font-size: var(--font-small);
-        }
-        
-        .metric.no-border { border-bottom: none; }
-        
-        .period-select { 
-            display: flex; 
-            gap: min(2vw, 8px); 
-            margin-top: auto;
-            border-top: 1px solid #eee;
-            padding-top: min(2vw, 8px);
-        }
-        
-        select { 
-            flex: 1; 
-            padding: min(2vw, 8px) min(1vw, 4px); 
-            border: 1px solid #ddd; 
-            border-radius: 8px; 
-            background: #fff; 
-            font-size: var(--font-small); 
-            text-align: center; 
-            font-family: 'Manrope', sans-serif;
         }
         
         .bonus-row { 
             display: flex; 
             justify-content: space-around; 
-            gap: 0;
-            padding: min(2vw, 8px) 0;
             position: relative;
+            padding: 4px 0;
         }
         
         .bonus-row::after {
@@ -135,63 +101,97 @@
             left: 50%;
             width: 1px;
             background: #eee;
-            z-index: 1;
         }
         
         .bonus-row div { 
             text-align: center; 
-            position: relative;
-            z-index: 2;
             flex: 1;
         }
         
         .period-title { 
-            font-size: var(--font-xsmall); 
-            margin-bottom: min(2vw, 8px); 
+            font-size: var(--font-xs); 
+            margin-bottom: 6px; 
             display: block; 
             font-weight: 500; 
             line-height: 1.3; 
         }
         
         .bonus-amount { 
-            font-size: var(--font-small); 
-            white-space: nowrap; 
+            font-size: var(--font-sm); 
         }
         
         .bonus-divider {
             border-top: 1px solid #eee; 
-            margin: min(1vw, 4px) 0;
+            margin: 6px 0;
         }
         
         .total-row {
             display: flex;
             justify-content: space-around;
             align-items: center;
-            margin-top: auto;
-            padding-top: min(2vw, 8px);
+            padding-top: 4px;
         }
         
         .total-amount { 
-            font-size: var(--font-base); 
-            white-space: nowrap; 
+            font-size: 15px; 
             font-weight: 600;
         }
         
+        .period-select { 
+            display: flex; 
+            gap: 8px; 
+            margin-top: 8px;
+            border-top: 1px solid #eee;
+            padding-top: 8px;
+        }
+        
+        select { 
+            flex: 1; 
+            padding: 8px 4px; 
+            border: 1px solid #ddd; 
+            border-radius: 8px; 
+            background: #fff; 
+            font-size: var(--font-sm); 
+            text-align: center; 
+            font-family: 'Manrope', sans-serif;
+        }
+        
+        .metric { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 8px 0; 
+            border-bottom: 1px solid #eee; 
+            font-size: 15px; 
+        }
+        
+        .metric.no-border { border-bottom: none; }
+        
+        .sprint-content {
+            display: flex;
+            gap: var(--gap);
+        }
+        
+        .sprint-block { 
+            flex: 1; 
+            background: #f9f9f9; 
+            border-radius: 8px; 
+            padding: 8px; 
+            border: 1px solid #eee; 
+        }
+        
         .sprint-title { 
-            font-size: var(--font-small); 
+            font-size: 14px; 
             font-weight: 600; 
-            color: #333;
-            text-align: left;
-            margin: 0 0 min(2vw, 8px) 0;
-            padding: 0;
+            margin: 0 0 8px 4px; 
         }
         
         .progress-bar { 
-            height: min(3vw, 12px); 
+            height: 12px; 
             background: #e0e0e0; 
             border-radius: 6px; 
             position: relative; 
-            margin-top: min(1vw, 4px); 
+            margin: 4px 0 8px; 
         }
         
         .progress-fill { 
@@ -199,12 +199,10 @@
             background: #674ea6; 
             border-radius: 6px; 
             position: absolute; 
-            top: 0; 
-            left: 0; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
-            font-size: var(--font-xsmall); 
+            font-size: 11px; 
             color: #fff; 
             min-width: 20px; 
         }
@@ -215,8 +213,7 @@
             left: 0; 
             width: 100%; 
             height: 100%; 
-            background: linear-gradient(135deg, #f9f9f9 0%, #e0e0e0 100%); 
-            backdrop-filter: blur(4px); 
+            background: #f9f9f9; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
@@ -232,7 +229,10 @@
             animation: spin 1s linear infinite; 
         }
         
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes spin { 
+            0% { transform: rotate(0deg); } 
+            100% { transform: rotate(360deg); } 
+        }
         
         .content { display: none; }
         
@@ -242,92 +242,100 @@
             .position { color: #aaa; } 
             select { background: #3a3a3c; color: #fff; border-color: #555; } 
             .metric { border-color: #444; } 
-            .loader { background: linear-gradient(135deg, #1c1c1e 0%, #2c2c2e 100%); } 
+            .loader { background: #1c1c1e; } 
             .spinner { border-color: #3a3a3c; border-top-color: #674ea6; } 
+            .employee-block, .total-block, .sprint-block { background: #3a3a3c; border-color: #555; } 
             .progress-bar { background: #555; } 
-            .sprint-title { color: #fff; }
             .bonus-divider, .period-select, .bonus-row::after { border-color: #555; background: #555; }
         }
         
         @media (max-width: 480px) {
-            .dashboard {
-                grid-template-columns: 1fr;
-                grid-template-rows: auto auto auto auto;
+            :root {
+                --gap: 8px;
+                --padding: 10px;
             }
             
-            .employee-block { grid-column: 1; grid-row: 1; }
-            .total-block { grid-column: 1; grid-row: 2; }
-            .sprint-1 { grid-column: 1; grid-row: 3; }
-            .sprint-2 { grid-column: 1; grid-row: 4; }
+            .header-section, .sprint-content { 
+                flex-direction: column; 
+            }
+            
+            .avatar { 
+                width: 40px; 
+                height: 40px; 
+            }
+            
+            .name { font-size: 15px; }
+            
+            .bonus-row div { min-width: 60px; }
         }
         
         @media (max-width: 320px) {
             :root {
-                --card-padding: 12px;
+                --gap: 6px;
+                --padding: 8px;
+                --font-base: 13px;
+                --font-sm: 12px;
+                --font-xs: 10px;
             }
             
-            .header {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .info {
-                text-align: center;
-            }
+            body { padding: 4px; }
         }
     </style>
 </head>
 <body>
     <div class="loader" id="loader"><div class="spinner"></div></div>
     <div class="content" id="content">
-        <div class="dashboard">
-            <div class="card employee-block">
-                <div class="header">
-                    <div class="avatar" id="avatar"></div>
-                    <div class="info">
-                        <h2 class="name" id="name">А28-Денис</h2>
-                        <p class="position">Аналитик</p>
+        <div class="card">
+            <div class="header-section">
+                <div class="employee-block">
+                    <div class="header">
+                        <div class="avatar" id="avatar"></div>
+                        <div class="info">
+                            <h2 class="name" id="name">А28-Денис</h2>
+                            <p class="position">Аналитик</p>
+                        </div>
+                    </div>
+                    <div class="metric no-border"><span>Оклад</span><span id="oklad">-- ₽</span></div>
+                    <div class="period-select">
+                        <select id="monthSelect"></select>
+                        <select id="yearSelect"></select>
                     </div>
                 </div>
-                <div class="metric no-border"><span>Оклад</span><span id="oklad">-- ₽</span></div>
-                <div class="period-select">
-                    <select id="monthSelect"></select>
-                    <select id="yearSelect"></select>
+                <div class="total-block">
+                    <div class="bonus-row">
+                        <div><span class="period-title">Бонус<br>1 период</span><span class="bonus-amount" id="bonus1">-- ₽</span></div>
+                        <div><span class="period-title">Бонус<br>2 период</span><span class="bonus-amount" id="bonus2">-- ₽</span></div>
+                    </div>
+                    <div class="bonus-divider"></div>
+                    <div class="total-row">
+                        <span>Выплата</span>
+                        <span class="total-amount" id="total">-- ₽</span>
+                    </div>
                 </div>
             </div>
-            
-            <div class="card total-block">
-                <div class="bonus-row">
-                    <div><span class="period-title">Бонус<br>1 период</span><span class="bonus-amount" id="bonus1">-- ₽</span></div>
-                    <div><span class="period-title">Бонус<br>2 период</span><span class="bonus-amount" id="bonus2">-- ₽</span></div>
+        </div>
+        
+        <div class="card">
+            <div class="sprint-content">
+                <div class="sprint-block">
+                    <h3 class="sprint-title">1-й спринт</h3>
+                    <div class="metric no-border"><span>Задачи</span><span id="tasks1">--</span></div>
+                    <div class="progress-bar"><div class="progress-fill" id="progressFill1" style="width: 0%;"></div></div>
+                    <div class="metric no-border"><span>Эпики</span><span id="epics1">--</span></div>
+                    <div class="metric no-border"><span>Бонус</span><span id="sprintBonus1">-- ₽</span></div>
                 </div>
-                <div class="bonus-divider"></div>
-                <div class="total-row">
-                    <span class="total-sum">Выплата</span>
-                    <span class="total-amount" id="total">-- ₽</span>
+                <div class="sprint-block">
+                    <h3 class="sprint-title">2-й спринт</h3>
+                    <div class="metric no-border"><span>Задачи</span><span id="tasks2">--</span></div>
+                    <div class="progress-bar"><div class="progress-fill" id="progressFill2" style="width: 0%;"></div></div>
+                    <div class="metric no-border"><span>Эпики</span><span id="epics2">--</span></div>
+                    <div class="metric no-border"><span>Бонус</span><span id="sprintBonus2">-- ₽</span></div>
                 </div>
-            </div>
-            
-            <div class="card sprint-1">
-                <h3 class="sprint-title">1-й спринт</h3>
-                <div class="metric no-border"><span>Задачи</span><span id="tasks1">--</span></div>
-                <div class="progress-bar"><div class="progress-fill" id="progressFill1" style="width: 0%;"></div></div>
-                <div class="metric no-border"><span>Эпики</span><span id="epics1">--</span></div>
-                <div class="metric no-border"><span>Бонус</span><span id="sprintBonus1">-- ₽</span></div>
-            </div>
-            
-            <div class="card sprint-2">
-                <h3 class="sprint-title">2-й спринт</h3>
-                <div class="metric no-border"><span>Задачи</span><span id="tasks2">--</span></div>
-                <div class="progress-bar"><div class="progress-fill" id="progressFill2" style="width: 0%;"></div></div>
-                <div class="metric no-border"><span>Эпики</span><span id="epics2">--</span></div>
-                <div class="metric no-border"><span>Бонус</span><span id="sprintBonus2">-- ₽</span></div>
             </div>
         </div>
     </div>
 
     <script>
-        // JavaScript код остается без изменений
         Telegram.WebApp.ready();
         const webApp = Telegram.WebApp;
         const user = webApp.initDataUnsafe.user || {};
