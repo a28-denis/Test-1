@@ -165,7 +165,7 @@ async function loadAllData(){
 const loader=document.getElementById('loader');
 const content=document.getElementById('content');
 try{
-const response=await fetch('https://script.google.com/macros/s/AKfycbwBPq9Ev5JUbahFIWn2yiWUICPThobJTE5qn9-fDw4j_Y45iS-QOvTm6GWb_aSK1Yddtg/exec');
+const response=await fetch('https://mlmotiv.app.n8n.cloud/webhook/data');
 if(!response.ok)throw new Error('Network error');
 allData=await response.json();
 if(!allData||typeof allData!=='object')throw new Error('Invalid data format');
@@ -220,4 +220,5 @@ document.getElementById('yearSelect').addEventListener('change',()=>updateMetric
 loadAllData();
 </script>
 </html>
+
 
