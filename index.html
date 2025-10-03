@@ -165,7 +165,7 @@ async function loadAllData(){
 const loader=document.getElementById('loader');
 const content=document.getElementById('content');
 try{
-const response=await fetch('https://script.google.com/macros/s/AKfycbxMSaMp8HkUDnKYt9AOR8YEvd3Sg71LydCt4qw8G1RbDL3d2Ujtp9mAbHB-Pvj1t8YB4g/exec');
+const response=await fetch('https://script.google.com/macros/s/AKfycbwBPq9Ev5JUbahFIWn2yiWUICPThobJTE5qn9-fDw4j_Y45iS-QOvTm6GWb_aSK1Yddtg/exec');
 if(!response.ok)throw new Error('Network error');
 allData=await response.json();
 if(!allData||typeof allData!=='object')throw new Error('Invalid data format');
@@ -220,3 +220,4 @@ document.getElementById('yearSelect').addEventListener('change',()=>updateMetric
 loadAllData();
 </script>
 </html>
+
