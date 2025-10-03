@@ -47,6 +47,11 @@ select:focus{outline:none;background:#f1f3f6}
 .progress-fill{height:100%;background:#674ea6;border-radius:7.5px;position:absolute;top:0;left:0;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;min-width:20px}
 .loader{position:fixed;top:0;left:0;width:100%;height:100%;background:#f8fafc;backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;z-index:100}
 .spinner{width:40px;height:40px;border:3px solid #e2e8f0;border-top:3px solid #674ea6;border-radius:50%;animation:spin 1s linear infinite}
+.epics-block-wrapper{display:flex;flex-direction:column;margin-bottom:12px}
+.epics-title{font-size:14px;font-weight:600;color:#1e293b;text-align:left;margin:0 0 4px 8px;padding:0;align-self:flex-start}
+.epics-block{background:#fff;border-radius:10px;padding:10px;border:none;box-shadow:0 1px 2px rgba(0,0,0,.08);display:flex;flex-direction:column}
+.epic-item{font-size:13px;color:#1e293b;line-height:1.3;margin:3px 0;text-align:center;border-bottom:1px solid #e2e8f0}
+.epic-item:last-child{border-bottom:none}
 @keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
 .content{display:none}
 @media (min-width:768px){
@@ -56,7 +61,7 @@ select:focus{outline:none;background:#f1f3f6}
 @media (prefers-color-scheme:dark){
 body{background:#0f172a;color:#f1f5f9}
 .card{background:#1e293b;box-shadow:0 2px 8px rgba(0,0,0,.2)}
-.employee-block,.total-block,.sprint-block{background:#252f47;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.employee-block,.total-block,.sprint-block,.epics-block{background:#252f47;box-shadow:0 1px 2px rgba(0,0,0,.2)}
 .position{color:#94a3b8}
 select{background:#1b253a;color:#f1f5f9;border:none;appearance:auto;-webkit-appearance:auto;-moz-appearance:auto}
 select:focus{outline:none;background:#1b253a}
@@ -65,10 +70,10 @@ select:focus{outline:none;background:#1b253a}
 .spinner{border-color:#334155;border-top-color:#674ea6}
 .progress-bar{background:#475569}
 .progress-fill{background:#674ea6}
-.sprint-title{color:#f1f5f9}
+.sprint-title,.epics-title{color:#f1f5f9}
 .task-progress-block,.epic-bonus-block{background:#2a344e;border:none}
-.bonus-divider,.bonus-row::after,.period-select{border-color:#334155}
-.bonus-label,.total-sum{color:#f1f5f9;padding-left:4px}
+.bonus-divider,.bonus-row::after,.period-select,.epic-item{border-color:#334155}
+.bonus-label,.total-sum,.epic-item{color:#f1f5f9;padding-left:4px}
 .period-title{color:#cbd5e1}
 }
 @media (max-width:360px){
@@ -78,7 +83,7 @@ select:focus{outline:none;background:#1b253a}
 .name{font-size:17px}
 .bonus-row div{min-width:60px}
 .total-row{width:128px}
-.sprint-title{margin-bottom:2px;margin-left:4px}
+.sprint-title,.epics-title{margin-bottom:2px;margin-left:4px}
 }
 </style>
 </head>
@@ -116,6 +121,12 @@ select:focus{outline:none;background:#1b253a}
 <span class="total-amount" id="total">-- ₽</span>
 </div>
 </div>
+</div>
+</div>
+<div id="epics-block-wrapper" class="epics-block-wrapper" style="display:none">
+<h3 class="epics-title">Закрытые эпики</h3>
+<div id="epics-block" class="epics-block">
+<div id="epics-list"></div>
 </div>
 </div>
 <div class="sprint-container">
@@ -214,6 +225,22 @@ document.getElementById('sprintBonus2').textContent=`${formatNum(sprint2.bonus)}
 document.getElementById('bonus1').textContent=`${formatNum(sprint1.total_bonus)} ₽`;
 document.getElementById('bonus2').textContent=`${formatNum(sprint2.total_bonus)} ₽`;
 document.getElementById('total').textContent=`${formatNum(data.total)} ₽`;
+const epicsWrapper=document.getElementById('epics-block-wrapper');
+const epicsList=document.getElementById('epics-list');
+epicsList.innerHTML='';
+if(data.epic_names&&data.epic_names!=='нет закрытых эпиков'&&data.epic_names.trim()){
+epicsWrapper.style.display='block';
+data.epic_names.split('::').forEach(epic=>{
+if(epic.trim()){
+const div=document.createElement('div');
+div.className='epic-item';
+div.textContent=epic.trim();
+epicsList.appendChild(div);
+}
+});
+}else{
+epicsWrapper.style.display='none';
+}
 }
 document.getElementById('monthSelect').addEventListener('change',()=>updateMetrics(`${document.getElementById('monthSelect').value}-${document.getElementById('yearSelect').value}`));
 document.getElementById('yearSelect').addEventListener('change',()=>updateMetrics(`${document.getElementById('monthSelect').value}-${document.getElementById('yearSelect').value}`));
