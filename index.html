@@ -140,10 +140,7 @@ webApp.setHeaderColor('#585858');
 const user = webApp.initDataUnsafe.user || {};
 let allData = {};
 
-const monthsMap = {
-    'январь':1,'февраль':2,'март':3,'апрель':4,'май':5,'июнь':6,
-    'июль':7,'август':8,'сентябрь':9,'октябрь':10,'ноябрь':11,'декабрь':12
-};
+const monthsMap = {'январь':1,'февраль':2,'март':3,'апрель':4,'май':5,'июнь':6,'июль':7,'август':8,'сентябрь':9,'октябрь':10,'ноябрь':11,'декабрь':12};
 const monthsNames = Object.keys(monthsMap);
 const now = new Date();
 const currentMonth = monthsNames[now.getMonth()];
@@ -157,8 +154,15 @@ async function loadAllData() {
     
     const cached = localStorage.getItem('hrData');
     const cacheTime = localStorage.getItem('hrDataTimestamp');
+    const isFreshCache = cached && cacheTime && (Date.now() - cacheTime < 300000);
     
-    if (cached && (Date.now() - cacheTime < 300000)) {
+    // Очищаем устаревшие данные
+    if (cacheTime && (Date.now() - cacheTime > 300000)) {
+        localStorage.removeItem('hrData');
+        localStorage.removeItem('hrDataTimestamp');
+    }
+    
+    if (isFreshCache) {
         allData = JSON.parse(cached);
         updateUI();
         loader.style.display = 'none';
@@ -190,7 +194,6 @@ function updateUI() {
     const years = [...new Set(Object.keys(allData).map(p => p.split('-')[1]))].sort((a, b) => a - b);
     const yearSelect = document.getElementById('yearSelect');
     yearSelect.innerHTML = '';
-    
     years.forEach(year => {
         const option = document.createElement('option');
         option.value = year;
@@ -201,7 +204,6 @@ function updateUI() {
 
     const monthSelect = document.getElementById('monthSelect');
     monthSelect.innerHTML = '';
-    
     monthsNames.forEach(month => {
         const option = document.createElement('option');
         option.value = month;
