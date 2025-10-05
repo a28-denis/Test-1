@@ -146,7 +146,7 @@ select:focus{outline:none;background:#2a2a2a}
   const currentMonth = monthsNames[now.getMonth()];
   const currentYear = now.getFullYear().toString();
   
-  document.getElementById('avatar').style.backgroundImage = `url('${user.photo_url || 'https://storage.googleapis.com/hr-avatars-yourproject/default.jpg'}')`;
+  document.getElementById('avatar').style.backgroundImage = 'url("https://raw.githubusercontent.com/a28-denis/Test-1/main/images/a28.jpg")';
   
   async function loadAllData() {
     const loader = document.getElementById('loader');
@@ -199,7 +199,7 @@ select:focus{outline:none;background:#2a2a2a}
     const sprint2 = data.sprint2 || {};
     const formatNum = num => Number.isFinite(num) ? num.toLocaleString('ru-RU') : '--';
   
-    document.getElementById('avatar').style.backgroundImage = `url('${data.avatar_url || user.photo_url || 'https://storage.googleapis.com/hr-avatars-yourproject/default.jpg'}')`;
+    document.getElementById('avatar').style.backgroundImage = 'url("https://raw.githubusercontent.com/a28-denis/Test-1/main/images/a28.jpg")';
     document.getElementById('oklad').textContent = `${formatNum(data.oklad)} ₽`;
     document.getElementById('tasks1').textContent = `${sprint1.tasks_done ?? '--'} / ${sprint1.total_tasks ?? '--'}`;
     document.getElementById('progressFill1').style.width = `${Math.round(sprint1.percent) || 0}%`;
