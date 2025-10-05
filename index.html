@@ -55,7 +55,7 @@ select:focus{outline:none;background:#2a2a2a}
 .epic-item:last-child{border-bottom:none}
 @keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
 .content{display:none}
-@media (min-width:480px){.header-section{flex-direction:row;align-items:stretch}.employee-block,.total-block{flex:1;min-height:124px}}
+@media (min-width:600px){.header-section{flex-direction:row;align-items:stretch}.employee-block,.total-block{flex:1;min-height:124px}}
 @media (max-width:360px){.card{padding:10px;margin:2px;width:calc(100vw - 8px)}.header,.period-select{margin-bottom:6px}.avatar{width:40px;height:40px}.name{font-size:17px}.bonus-row div{min-width:60px}.total-row{width:128px}.sprint-title,.epics-title{margin-bottom:2px;margin-left:4px}}
 </style>
 </head>
@@ -134,14 +134,11 @@ select:focus{outline:none;background:#2a2a2a}
 </div>
 </body>
 <script>
-  // Инициализация Telegram Web App
   Telegram.WebApp.ready();
   Telegram.WebApp.setHeaderColor('#585858');
   Telegram.WebApp.setBackgroundColor('#585858');
   const webApp = Telegram.WebApp;
   const user = webApp.initDataUnsafe.user || {};
-  
-  // Глобальные переменные
   let allData = {};
   const monthsMap = { 'январь': 1, 'февраль': 2, 'март': 3, 'апрель': 4, 'май': 5, 'июнь': 6, 'июль': 7, 'август': 8, 'сентябрь': 9, 'октябрь': 10, 'ноябрь': 11, 'декабрь': 12 };
   const monthsNames = Object.keys(monthsMap);
@@ -149,10 +146,8 @@ select:focus{outline:none;background:#2a2a2a}
   const currentMonth = monthsNames[now.getMonth()];
   const currentYear = now.getFullYear().toString();
   
-  // Установка аватара
   document.getElementById('avatar').style.backgroundImage = `url('${user.photo_url || 'https://storage.googleapis.com/hr-avatars-yourproject/default.jpg'}')`;
   
-  // Загрузка данных
   async function loadAllData() {
     const loader = document.getElementById('loader');
     const content = document.getElementById('content');
@@ -185,14 +180,12 @@ select:focus{outline:none;background:#2a2a2a}
     }
   }
   
-  // Обновление интерфейса
   function updateUI() {
     const years = [...new Set(Object.keys(allData).map(p => p.split('-')[1]))].sort((a, b) => a - b);
     const yearSelect = document.getElementById('yearSelect');
     years.forEach(year => {
       const option = document.createElement('option');
-      option.value = year;
-      option.textContent = year;
+      option.value = option.textContent = year;
       yearSelect.appendChild(option);
     });
     yearSelect.value = currentYear;
@@ -209,7 +202,6 @@ select:focus{outline:none;background:#2a2a2a}
     updateMetrics(`${monthSelect.value}-${yearSelect.value}`);
   }
   
-  // Обновление метрик
   function updateMetrics(period) {
     const data = allData[period] || {};
     const sprint1 = data.sprint1 || {};
@@ -218,15 +210,15 @@ select:focus{outline:none;background:#2a2a2a}
   
     document.getElementById('avatar').style.backgroundImage = `url('${data.avatar_url || user.photo_url || 'https://storage.googleapis.com/hr-avatars-yourproject/default.jpg'}')`;
     document.getElementById('oklad').textContent = `${formatNum(data.oklad)} ₽`;
-    document.getElementById('tasks1').textContent = `${Number.isFinite(sprint1.tasks_done) ? sprint1.tasks_done : '--'} / ${Number.isFinite(sprint1.total_tasks) ? sprint1.total_tasks : '--'}`;
-    document.getElementById('progressFill1').style.width = `${Number.isFinite(sprint1.percent) ? Math.round(sprint1.percent) : 0}%`;
-    document.getElementById('progressFill1').textContent = `${Number.isFinite(sprint1.percent) ? Math.round(sprint1.percent) : 0}%`;
-    document.getElementById('epics1').textContent = Number.isFinite(sprint1.epics_closed) ? sprint1.epics_closed : '--';
+    document.getElementById('tasks1').textContent = `${sprint1.tasks_done ?? '--'} / ${sprint1.total_tasks ?? '--'}`;
+    document.getElementById('progressFill1').style.width = `${Math.round(sprint1.percent) || 0}%`;
+    document.getElementById('progressFill1').textContent = `${Math.round(sprint1.percent) || 0}%`;
+    document.getElementById('epics1').textContent = sprint1.epics_closed ?? '--';
     document.getElementById('sprintBonus1').textContent = `${formatNum(sprint1.bonus)} ₽`;
-    document.getElementById('tasks2').textContent = `${Number.isFinite(sprint2.tasks_done) ? sprint2.tasks_done : '--'} / ${Number.isFinite(sprint2.total_tasks) ? sprint2.total_tasks : '--'}`;
-    document.getElementById('progressFill2').style.width = `${Number.isFinite(sprint2.percent) ? Math.round(sprint2.percent) : 0}%`;
-    document.getElementById('progressFill2').textContent = `${Number.isFinite(sprint2.percent) ? Math.round(sprint2.percent) : 0}%`;
-    document.getElementById('epics2').textContent = Number.isFinite(sprint2.epics_closed) ? sprint2.epics_closed : '--';
+    document.getElementById('tasks2').textContent = `${sprint2.tasks_done ?? '--'} / ${sprint2.total_tasks ?? '--'}`;
+    document.getElementById('progressFill2').style.width = `${Math.round(sprint2.percent) || 0}%`;
+    document.getElementById('progressFill2').textContent = `${Math.round(sprint2.percent) || 0}%`;
+    document.getElementById('epics2').textContent = sprint2.epics_closed ?? '--';
     document.getElementById('sprintBonus2').textContent = `${formatNum(sprint2.bonus)} ₽`;
     document.getElementById('bonus1').textContent = `${formatNum(sprint1.total_bonus)} ₽`;
     document.getElementById('bonus2').textContent = `${formatNum(sprint2.total_bonus)} ₽`;
@@ -250,11 +242,9 @@ select:focus{outline:none;background:#2a2a2a}
     }
   }
   
-  // Обработчики событий
   document.getElementById('monthSelect').addEventListener('change', () => updateMetrics(`${document.getElementById('monthSelect').value}-${document.getElementById('yearSelect').value}`));
   document.getElementById('yearSelect').addEventListener('change', () => updateMetrics(`${document.getElementById('monthSelect').value}-${document.getElementById('yearSelect').value}`));
   
-  // Запуск загрузки данных
   loadAllData();
 </script>
 </html>
