@@ -1,0 +1,1010 @@
+{
+  "январь-2024": {
+    "oklad": 85000,
+    "epic_names": "нет закрытых эпиков",
+    "sprint1": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "sprint2": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "total": 85000
+  },
+  "февраль-2024": {
+    "oklad": 85000,
+    "epic_names": "нет закрытых эпиков",
+    "sprint1": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "sprint2": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "total": 85000
+  },
+  "март-2024": {
+    "oklad": 85000,
+    "epic_names": "нет закрытых эпиков",
+    "sprint1": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "sprint2": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "total": 85000
+  },
+  "апрель-2024": {
+    "oklad": 85000,
+    "epic_names": "нет закрытых эпиков",
+    "sprint1": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "sprint2": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "total": 85000
+  },
+  "май-2024": {
+    "oklad": 85000,
+    "epic_names": "нет закрытых эпиков",
+    "sprint1": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "sprint2": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "total": 85000
+  },
+  "июнь-2024": {
+    "oklad": 85000,
+    "epic_names": "Мотивация МФ13 Паша::Мотивация MOT::Мотивация РОМ | Монтаж",
+    "sprint1": {
+      "tasks_done": 1,
+      "total_tasks": 1,
+      "percent": 100,
+      "epics_closed": 2,
+      "bonus": 8500,
+      "total_bonus": 21250
+    },
+    "sprint2": {
+      "tasks_done": 8,
+      "total_tasks": 8,
+      "percent": 100,
+      "epics_closed": 1,
+      "bonus": 4250,
+      "total_bonus": 17000
+    },
+    "total": 123250
+  },
+  "июль-2024": {
+    "oklad": 85000,
+    "epic_names": "Мотивация Контент хантфлоу::Мотивация HR хантфлоу::Мотивация отдела монтажа::Мотивация отдела контента",
+    "sprint1": {
+      "tasks_done": 5,
+      "total_tasks": 6,
+      "percent": 83.33333333333334,
+      "epics_closed": 2,
+      "bonus": 12750,
+      "total_bonus": 8500
+    },
+    "sprint2": {
+      "tasks_done": 7,
+      "total_tasks": 7,
+      "percent": 100,
+      "epics_closed": 2,
+      "bonus": 12750,
+      "total_bonus": 21250
+    },
+    "total": 114750
+  },
+  "август-2024": {
+    "oklad": 85000,
+    "epic_names": "Мотивация Рекрута Контент::Мотивация HR::Мотивация Финансов",
+    "sprint1": {
+      "tasks_done": 3,
+      "total_tasks": 3,
+      "percent": 100,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 12750
+    },
+    "sprint2": {
+      "tasks_done": 7,
+      "total_tasks": 7,
+      "percent": 100,
+      "epics_closed": 3,
+      "bonus": 12750.000000000002,
+      "total_bonus": 25500
+    },
+    "total": 123250
+  },
+  "сентябрь-2024": {
+    "oklad": 85000,
+    "epic_names": "Центр Управления отделами",
+    "sprint1": {
+      "tasks_done": 8,
+      "total_tasks": 8,
+      "percent": 100,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 12750
+    },
+    "sprint2": {
+      "tasks_done": 6,
+      "total_tasks": 6,
+      "percent": 100,
+      "epics_closed": 1,
+      "bonus": 4250,
+      "total_bonus": 17000
+    },
+    "total": 114750
+  },
+  "октябрь-2024": {
+    "oklad": 85000,
+    "epic_names": "Мотивация МФ01-Даня::Мотивация Фарм Удаленщики::Мотивация Разработка::Мотивация Офис Менеджер",
+    "sprint1": {
+      "tasks_done": 8,
+      "total_tasks": 8,
+      "percent": 100,
+      "epics_closed": 2,
+      "bonus": 8500,
+      "total_bonus": 21250
+    },
+    "sprint2": {
+      "tasks_done": 8,
+      "total_tasks": 8,
+      "percent": 100,
+      "epics_closed": 2,
+      "bonus": 8500,
+      "total_bonus": 21250
+    },
+    "total": 127500
+  },
+  "ноябрь-2024": {
+    "oklad": 120000,
+    "epic_names": "Мотивация А02-Марина::Мотивация Ф11-Анна::Мотивация К72-Лада::Геймификация | Механизм",
+    "sprint1": {
+      "tasks_done": 4,
+      "total_tasks": 4,
+      "percent": 100,
+      "epics_closed": 2,
+      "bonus": 12000,
+      "total_bonus": 30000
+    },
+    "sprint2": {
+      "tasks_done": 12,
+      "total_tasks": 12,
+      "percent": 100,
+      "epics_closed": 2,
+      "bonus": 12000,
+      "total_bonus": 30000
+    },
+    "total": 180000
+  },
+  "декабрь-2024": {
+    "oklad": 125000,
+    "epic_names": "Мотивация М46-Сергей",
+    "sprint1": {
+      "tasks_done": 2,
+      "total_tasks": 2,
+      "percent": 100,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 18750
+    },
+    "sprint2": {
+      "tasks_done": 4,
+      "total_tasks": 4,
+      "percent": 100,
+      "epics_closed": 1,
+      "bonus": 6250,
+      "total_bonus": 25000
+    },
+    "total": 168750
+  },
+  "январь-2025": {
+    "oklad": 125000,
+    "epic_names": "Мотивация Slaver::Геймификация V1 | Магазин",
+    "sprint1": {
+      "tasks_done": 3,
+      "total_tasks": 3,
+      "percent": 100,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 18750
+    },
+    "sprint2": {
+      "tasks_done": 7,
+      "total_tasks": 7,
+      "percent": 100,
+      "epics_closed": 2,
+      "bonus": 12500,
+      "total_bonus": 37500
+    },
+    "total": 181250
+  },
+  "февраль-2025": {
+    "oklad": 145000,
+    "epic_names": "Оценка эффективности мотиваций | Все отделы",
+    "sprint1": {
+      "tasks_done": 6,
+      "total_tasks": 6,
+      "percent": 100,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 21750
+    },
+    "sprint2": {
+      "tasks_done": 3,
+      "total_tasks": 3,
+      "percent": 100,
+      "epics_closed": 1,
+      "bonus": 7250,
+      "total_bonus": 29000
+    },
+    "total": 195750
+  },
+  "март-2025": {
+    "oklad": 145000,
+    "epic_names": "Мотивация Ассистент | А01::Мотивация А35 - Настя | HR::Мотивация Разработка V2::Мотивация Рассылки",
+    "sprint1": {
+      "tasks_done": 3,
+      "total_tasks": 3,
+      "percent": 100,
+      "epics_closed": 3,
+      "bonus": 21750.000000000004,
+      "total_bonus": 43500
+    },
+    "sprint2": {
+      "tasks_done": 4,
+      "total_tasks": 4,
+      "percent": 100,
+      "epics_closed": 1,
+      "bonus": 7250,
+      "total_bonus": 29000
+    },
+    "total": 217500
+  },
+  "апрель-2025": {
+    "oklad": 145000,
+    "epic_names": "Мотивация Саппорт | Отдел Разработки::Мотивация А27-Аня | HR",
+    "sprint1": {
+      "tasks_done": 3,
+      "total_tasks": 3,
+      "percent": 100,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 21750
+    },
+    "sprint2": {
+      "tasks_done": 8,
+      "total_tasks": 8,
+      "percent": 100,
+      "epics_closed": 2,
+      "bonus": 14500,
+      "total_bonus": 36250
+    },
+    "total": 203000
+  },
+  "май-2025": {
+    "oklad": 145000,
+    "epic_names": "ТГ Бот | Геймификация::Бот ТГ уведомления | HR",
+    "sprint1": {
+      "tasks_done": 5,
+      "total_tasks": 5,
+      "percent": 100,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 21750
+    },
+    "sprint2": {
+      "tasks_done": 9,
+      "total_tasks": 9,
+      "percent": 100,
+      "epics_closed": 2,
+      "bonus": 14500,
+      "total_bonus": 36250
+    },
+    "total": 203000
+  },
+  "июнь-2025": {
+    "oklad": 145000,
+    "epic_names": "Мотивация Lead Адаптация | HR::Мотивация | Продуктовый Маркетинг v1::Мотивация | Контент 7",
+    "sprint1": {
+      "tasks_done": 5,
+      "total_tasks": 5,
+      "percent": 100,
+      "epics_closed": 1,
+      "bonus": 7250,
+      "total_bonus": 29000
+    },
+    "sprint2": {
+      "tasks_done": 5,
+      "total_tasks": 5,
+      "percent": 100,
+      "epics_closed": 2,
+      "bonus": 14500,
+      "total_bonus": 36250
+    },
+    "total": 210250
+  },
+  "июль-2025": {
+    "oklad": 145000,
+    "epic_names": "Мотивация рекрут | Контент 2::Бот уведомления | Разработка::Менторство ИПР бонусы | HR::Наставничество бонусы | HR::Мотивация Рекрут 2.0 | Контент::Мотивация Офис-Менеджера 3.0 | HR::Мотивация Рекрут 2.0 | HR",
+    "sprint1": {
+      "tasks_done": 12,
+      "total_tasks": 12,
+      "percent": 100,
+      "epics_closed": 3,
+      "bonus": 21750.000000000004,
+      "total_bonus": 43500
+    },
+    "sprint2": {
+      "tasks_done": 9,
+      "total_tasks": 9,
+      "percent": 100,
+      "epics_closed": 4,
+      "bonus": 29000,
+      "total_bonus": 50750
+    },
+    "total": 239250
+  },
+  "август-2025": {
+    "oklad": 145000,
+    "epic_names": "Геймификация | HR::Бот Support | Chatlab",
+    "sprint1": {
+      "tasks_done": 5,
+      "total_tasks": 5,
+      "percent": 100,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 21750
+    },
+    "sprint2": {
+      "tasks_done": 12,
+      "total_tasks": 12,
+      "percent": 100,
+      "epics_closed": 2,
+      "bonus": 14500,
+      "total_bonus": 36250
+    },
+    "total": 203000
+  },
+  "сентябрь-2025": {
+    "oklad": 145000,
+    "epic_names": "Мотивация РОМ | Маркетинг",
+    "sprint1": {
+      "tasks_done": 8,
+      "total_tasks": 8,
+      "percent": 100,
+      "epics_closed": 1,
+      "bonus": 7250,
+      "total_bonus": 29000
+    },
+    "sprint2": {
+      "tasks_done": 9,
+      "total_tasks": 9,
+      "percent": 100,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 21750
+    },
+    "total": 195750
+  },
+  "октябрь-2025": {
+    "oklad": 145000,
+    "epic_names": "нет закрытых эпиков",
+    "sprint1": {
+      "tasks_done": 0,
+      "total_tasks": 3,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "sprint2": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "total": 145000
+  },
+  "ноябрь-2025": {
+    "oklad": 145000,
+    "epic_names": "нет закрытых эпиков",
+    "sprint1": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "sprint2": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "total": 145000
+  },
+  "декабрь-2025": {
+    "oklad": 145000,
+    "epic_names": "нет закрытых эпиков",
+    "sprint1": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "sprint2": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "total": 145000
+  },
+  "январь-2026": {
+    "oklad": 145000,
+    "epic_names": "нет закрытых эпиков",
+    "sprint1": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "sprint2": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "total": 145000
+  },
+  "февраль-2026": {
+    "oklad": 145000,
+    "epic_names": "нет закрытых эпиков",
+    "sprint1": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "sprint2": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "total": 145000
+  },
+  "март-2026": {
+    "oklad": 145000,
+    "epic_names": "нет закрытых эпиков",
+    "sprint1": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "sprint2": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "total": 145000
+  },
+  "апрель-2026": {
+    "oklad": 145000,
+    "epic_names": "нет закрытых эпиков",
+    "sprint1": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "sprint2": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "total": 145000
+  },
+  "май-2026": {
+    "oklad": 145000,
+    "epic_names": "нет закрытых эпиков",
+    "sprint1": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "sprint2": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "total": 145000
+  },
+  "июнь-2026": {
+    "oklad": 145000,
+    "epic_names": "нет закрытых эпиков",
+    "sprint1": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "sprint2": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "total": 145000
+  },
+  "июль-2026": {
+    "oklad": 145000,
+    "epic_names": "нет закрытых эпиков",
+    "sprint1": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "sprint2": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "total": 145000
+  },
+  "август-2026": {
+    "oklad": 145000,
+    "epic_names": "нет закрытых эпиков",
+    "sprint1": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "sprint2": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "total": 145000
+  },
+  "сентябрь-2026": {
+    "oklad": 145000,
+    "epic_names": "нет закрытых эпиков",
+    "sprint1": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "sprint2": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "total": 145000
+  },
+  "октябрь-2026": {
+    "oklad": 145000,
+    "epic_names": "нет закрытых эпиков",
+    "sprint1": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "sprint2": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "total": 145000
+  },
+  "ноябрь-2026": {
+    "oklad": 145000,
+    "epic_names": "нет закрытых эпиков",
+    "sprint1": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "sprint2": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "total": 145000
+  },
+  "декабрь-2026": {
+    "oklad": 145000,
+    "epic_names": "нет закрытых эпиков",
+    "sprint1": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "sprint2": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "total": 145000
+  },
+  "январь-2027": {
+    "oklad": 145000,
+    "epic_names": "нет закрытых эпиков",
+    "sprint1": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "sprint2": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "total": 145000
+  },
+  "февраль-2027": {
+    "oklad": 145000,
+    "epic_names": "нет закрытых эпиков",
+    "sprint1": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "sprint2": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "total": 145000
+  },
+  "март-2027": {
+    "oklad": 145000,
+    "epic_names": "нет закрытых эпиков",
+    "sprint1": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "sprint2": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "total": 145000
+  },
+  "апрель-2027": {
+    "oklad": 145000,
+    "epic_names": "нет закрытых эпиков",
+    "sprint1": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "sprint2": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "total": 145000
+  },
+  "май-2027": {
+    "oklad": 145000,
+    "epic_names": "нет закрытых эпиков",
+    "sprint1": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "sprint2": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "total": 145000
+  },
+  "июнь-2027": {
+    "oklad": 145000,
+    "epic_names": "нет закрытых эпиков",
+    "sprint1": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "sprint2": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "total": 145000
+  },
+  "июль-2027": {
+    "oklad": 145000,
+    "epic_names": "нет закрытых эпиков",
+    "sprint1": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "sprint2": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "total": 145000
+  },
+  "август-2027": {
+    "oklad": 145000,
+    "epic_names": "нет закрытых эпиков",
+    "sprint1": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "sprint2": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "total": 145000
+  },
+  "сентябрь-2027": {
+    "oklad": 145000,
+    "epic_names": "нет закрытых эпиков",
+    "sprint1": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "sprint2": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "total": 145000
+  },
+  "октябрь-2027": {
+    "oklad": 145000,
+    "epic_names": "нет закрытых эпиков",
+    "sprint1": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "sprint2": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "total": 145000
+  },
+  "ноябрь-2027": {
+    "oklad": 145000,
+    "epic_names": "нет закрытых эпиков",
+    "sprint1": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "sprint2": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "total": 145000
+  },
+  "декабрь-2027": {
+    "oklad": 145000,
+    "epic_names": "нет закрытых эпиков",
+    "sprint1": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "sprint2": {
+      "tasks_done": 0,
+      "total_tasks": 0,
+      "percent": 0,
+      "epics_closed": 0,
+      "bonus": 0,
+      "total_bonus": 0
+    },
+    "total": 145000
+  }
+}
