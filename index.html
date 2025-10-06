@@ -154,27 +154,14 @@ document.getElementById('avatar').style.backgroundImage='url("https://raw.github
 async function loadAllData(){
 const loader=document.getElementById('loader');
 const content=document.getElementById('content');
-const cacheTime=localStorage.getItem('hrDataTimestamp');
-const cached=localStorage.getItem('hrData');
-const isFreshCache=cached&&cacheTime&&(Date.now()-cacheTime<300000);
-if(cacheTime&&Date.now()-cacheTime>300000)localStorage.clear();
-if(isFreshCache){
-allData=JSON.parse(cached);
-updateUI();
-loader.style.display='none';
-content.style.display='block';
-return;
-}
 try{
-const response=await fetch('https://mlmotiv.app.n8n.cloud/webhook/data');
+const response=await fetch('https://raw.githubusercontent.com/a28-denis/Test-1/main/BD/data.json');
 if(!response.ok)throw new Error('Network error');
 allData=await response.json();
 if(!allData||typeof allData!=='object')throw new Error('Invalid data format');
-localStorage.setItem('hrData',JSON.stringify(allData));
-localStorage.setItem('hrDataTimestamp',Date.now());
 updateUI();
 }catch(error){
-if(!cached)webApp.showAlert('Ошибка загрузки данных. Попробуйте обновить.');
+webApp.showAlert('Ошибка загрузки данных. Попробуйте обновить.');
 }finally{
 loader.style.display='none';
 content.style.display='block';
