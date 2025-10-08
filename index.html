@@ -143,7 +143,6 @@ select:focus{outline:none;background:#2a2a2a}
 <script>
 Telegram.WebApp.ready();
 const webApp=Telegram.WebApp;
-webApp.expand();
 const user=webApp.initDataUnsafe.user||{};
 let allData={};
 const monthsMap={'январь':1,'февраль':2,'март':3,'апрель':4,'май':5,'июнь':6,'июль':7,'август':8,'сентябрь':9,'октябрь':10,'ноябрь':11,'декабрь':12};
@@ -220,4 +219,5 @@ document.getElementById('yearSelect').addEventListener('change',()=>updateMetric
 loadAllData();
 </script>
 </html>
+
 
