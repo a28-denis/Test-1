@@ -55,7 +55,6 @@ select:focus{outline:none;background:#2a2a2a}
 .epic-item{font-size:13px;line-height:1.4;margin:3px 0;text-align:center;border-bottom:1px solid #585858}
 .epic-item:last-child{border-bottom:none}
 .content{display:none}
-.fullsize-padding{padding-top:60px}
 @media (min-width:600px){.header-section{flex-direction:row;align-items:stretch}.employee-block,.total-block{flex:1;min-height:120px}}
 @media (max-width:360px){.card{padding:10px;margin:2px;width:calc(100vw - 8px)}.header,.period-select{margin-bottom:6px}.avatar{width:40px;height:40px}.name{font-size:17px}.bonus-row div{min-width:60px}.total-row{width:128px}.sprint-title,.epics-title{margin-bottom:2px;margin-left:4px}}
 </style>
@@ -152,15 +151,6 @@ const now=new Date();
 const currentMonth=monthsNames[now.getMonth()];
 const currentYear=now.getFullYear().toString();
 document.getElementById('avatar').style.backgroundImage='url("https://raw.githubusercontent.com/a28-denis/Test-1/main/images/a28.jpg")';
-function setupViewport(){
-const isMobile=/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-if(isMobile){
-webApp.expand();
-document.body.classList.add('fullsize-padding');
-}else{
-webApp.close();
-}
-}
 async function loadAllData(){
 const loader=document.getElementById('loader');
 const content=document.getElementById('content');
@@ -226,7 +216,6 @@ epicsWrapper.style.display='none';
 }
 document.getElementById('monthSelect').addEventListener('change',()=>updateMetrics(`${monthSelect.value}-${yearSelect.value}`));
 document.getElementById('yearSelect').addEventListener('change',()=>updateMetrics(`${monthSelect.value}-${yearSelect.value}`));
-setupViewport();
 loadAllData();
 </script>
 </html>
