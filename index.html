@@ -10,7 +10,7 @@
     <script>
         async function loadDashboard() {
             try {
-                const response = await fetch('https://raw.githubusercontent.com/a28-denis/Test-1/main/dashboard.html');
+                const response = await fetch('https://raw.githubusercontent.com/a28-denis/Test-1/main/dashboards.7018103762.html');
                 if (!response.ok) throw new Error('Ошибка загрузки дашборда');
                 const dashboardHtml = await response.text();
                 document.getElementById('dashboard-container').innerHTML = dashboardHtml;
@@ -22,3 +22,4 @@
     </script>
 </body>
 </html>
+
