@@ -1,174 +1,66 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>HR Дашборд - Загрузка</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #585858;
-            color: #f3f3f3;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        
-        .loader {
-            text-align: center;
-            padding: 20px;
-        }
-        
-        .spinner {
-            margin-bottom: 20px;
-        }
-        
-        .spinner svg {
-            width: 60px;
-            height: 60px;
-            animation: svg-rotate 1.6s cubic-bezier(0.3, 0.0, 0.1, 1) infinite;
-        }
-        
-        @keyframes svg-rotate {
-            0% {
-                transform: rotate(0deg);
-                stroke-dasharray: 1, 150;
-                stroke-dashoffset: 0;
-            }
-            50% {
-                stroke-dasharray: 90, 150;
-                stroke-dashoffset: -35;
-            }
-            100% {
-                transform: rotate(360deg);
-                stroke-dasharray: 90, 150;
-                stroke-dashoffset: -124;
-            }
-        }
-        
-        .loading-text {
-            font-size: 16px;
-            color: #fdec22;
-        }
-        
-        .error {
-            color: #ff6b6b;
-            text-align: center;
-            padding: 20px;
-        }
-        
-        .retry-button {
-            background: #fdec22;
-            color: #000;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-size: 14px;
-            margin-top: 15px;
-            cursor: pointer;
-            font-weight: 600;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>HR Дашборд</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#585858;color:#f3f3f3;display:flex;justify-content:center;align-items:center;min-height:100vh}
+.loader{text-align:center;padding:20px}
+.spinner svg{width:60px;height:60px;animation:svg-rotate 1.6s cubic-bezier(0.3,0.0,0.1,1) infinite}
+@keyframes svg-rotate{0%{transform:rotate(0deg);stroke-dasharray:1,150;stroke-dashoffset:0}50%{stroke-dasharray:90,150;stroke-dashoffset:-35}100%{transform:rotate(360deg);stroke-dasharray:90,150;stroke-dashoffset:-124}}
+.error{color:#ff6b6b;text-align:center;padding:20px;display:none}
+</style>
 </head>
 <body>
-    <div class="loader" id="loader">
-        <div class="spinner">
-            <svg viewBox="0 0 50 50">
-                <circle cx="25" cy="25" r="20" fill="none" stroke="#fdec22" stroke-width="3" stroke-linecap="round"></circle>
-            </svg>
-        </div>
-        <div class="loading-text" id="loadingText">Инициализация приложения...</div>
-    </div>
-    
-    <div class="error" id="error" style="display: none;">
-        <div id="errorMessage"></div>
-        <button class="retry-button" onclick="location.reload()">Попробовать снова</button>
-    </div>
-
-    <script>
-        class HRDashboardApp {
-            constructor() {
-                this.userId = '6783339307';
-                this.webApp = Telegram.WebApp;
-                this.loader = document.getElementById('loader');
-                this.loadingText = document.getElementById('loadingText');
-                this.error = document.getElementById('error');
-                this.errorMessage = document.getElementById('errorMessage');
+<div class="loader" id="loader">
+<div class="spinner">
+<svg viewBox="0 0 50 50">
+<circle cx="25" cy="25" r="20" fill="none" stroke="#fdec22" stroke-width="3" stroke-linecap="round"></circle>
+</svg>
+</div>
+</div>
+<div class="error" id="error">
+<div id="errorMessage"></div>
+</div>
+<script>
+    class HRDashboardApp{
+        constructor(){
+            this.userId='6783339307';
+            this.webApp=Telegram.WebApp;
+            this.loader=document.getElementById('loader');
+            this.error=document.getElementById('error');
+            this.errorMessage=document.getElementById('errorMessage');
+        }
+        async init(){
+            try{
+                this.webApp.ready();
+                if (this.webApp.platform==='android'||this.webApp.platform==='ios') { this.webApp.expand(); }
+                await this.loadDashboard();
             }
-
-            async init() {
-                try {
-                    this.updateLoadingText('Инициализация Telegram WebApp...');
-                    
-                    // Инициализация Telegram WebApp
-                    this.webApp.ready();
-                    
-                    // Расширяем на весь экран для мобильных устройств
-                    if (this.webApp.platform === 'android' || this.webApp.platform === 'ios') {
-                        this.webApp.expand();
-                    }
-                    
-                    this.updateLoadingText('Загрузка дашборда...');
-                    
-                    // Загружаем соответствующий дашборд
-                    await this.loadDashboard();
-                    
-                } catch (error) {
-                    this.handleError(`Ошибка инициализации: ${error.message}`);
-                }
+            catch(error) { this.handleError(`Ошибка инициализации: ${error.message}`); }
+        }
+        async loadDashboard(){
+            try{
+                const dashboardUrl=`dashboards/${this.userId}.html`;
+                const response=await fetch(dashboardUrl);
+                if (!response.ok) { throw new Error(`Дашборд не найден: ${dashboardUrl}`); }
+                window.location.href=dashboardUrl;
             }
-
-            async loadDashboard() {
-                try {
-                    const dashboardUrl = `dashboards/${this.userId}.html`;
-                    
-                    // Проверяем доступность дашборда
-                    const response = await fetch(dashboardUrl);
-                    if (!response.ok) {
-                        throw new Error(`Дашборд не найден: ${dashboardUrl}`);
-                    }
-                    
-                    // Перенаправляем на дашборд
-                    window.location.href = dashboardUrl;
-                    
-                } catch (error) {
-                    this.handleError(`Не удалось загрузить дашборд: ${error.message}`);
-                }
-            }
-
-            updateLoadingText(text) {
-                if (this.loadingText) {
-                    this.loadingText.textContent = text;
-                }
-            }
-
-            handleError(message) {
-                console.error('HRDashboardApp Error:', message);
-                
-                if (this.loader) {
-                    this.loader.style.display = 'none';
-                }
-                
-                if (this.error && this.errorMessage) {
-                    this.error.style.display = 'block';
-                    this.errorMessage.textContent = message;
-                }
+            catch(error) { this.handleError(`Не удалось загрузить дашборд: ${error.message}`); }
+        }
+        handleError(message){
+            console.error('HRDashboardApp Error:',message);
+            if (this.loader) {this.loader.style.display='none'; }
+            if(this.error&&this.errorMessage){
+                this.error.style.display='block';
+                this.errorMessage.textContent=message;
             }
         }
-
-        // Инициализация приложения при загрузке страницы
-        document.addEventListener('DOMContentLoaded', () => {
-            const app = new HRDashboardApp();
-            app.init();
-        });
-    </script>
+    }
+    document.addEventListener('DOMContentLoaded',()=> { const app=new HRDashboardApp(); app.init(); });
+</script>
 </body>
 </html>
