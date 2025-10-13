@@ -10,17 +10,28 @@
     <script>
         async function loadDashboard() {
             try {
+                console.log('Начало загрузки dashboard.html'); // Отладка
                 const response = await fetch('https://raw.githubusercontent.com/a28-denis/Test-1/main/dashboards/7018103762.html');
-                if (!response.ok) throw new Error('Ошибка загрузки дашборда');
+                if (!response.ok) throw new Error(`Ошибка загрузки дашборда: ${response.status}`);
                 const dashboardHtml = await response.text();
                 document.getElementById('dashboard-container').innerHTML = dashboardHtml;
+                console.log('dashboard.html успешно загружен и вставлен в DOM'); // Отладка
             } catch (error) {
-                alert('Ошибка загрузки дашборда. Попробуйте обновить.');
+                console.error('Ошибка в loadDashboard:', error); // Отладка
+                if (typeof Telegram !== 'undefined' && Telegram.WebApp) {
+                    Telegram.WebApp.showAlert('Ошибка загрузки дашборда. Попробуйте обновить.');
+                } else {
+                    alert('Ошибка загрузки дашборда. Попробуйте обновить.');
+                }
             }
+        }
+        if (typeof Telegram !== 'undefined' && Telegram.WebApp) {
+            Telegram.WebApp.ready();
+            console.log('Telegram Web App инициализирован'); // Отладка
+        } else {
+            console.warn('Telegram Web App не доступен'); // Отладка
         }
         loadDashboard();
     </script>
 </body>
 </html>
-
-
