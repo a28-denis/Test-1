@@ -1,0 +1,722 @@
+{
+  "Сентябрь-2024": {
+    "oklad": 110000,
+    "closes": {
+      "plan": 0,
+      "fact": 9,
+      "bonus_plan": 0,
+      "percent": 1.6722408026755853,
+      "bonus_fact": 0
+    },
+    "rating": {
+      "plan": 0,
+      "fact": 0.92,
+      "bonus_plan": 1.6722408026755855,
+      "percent": 0
+    },
+    "bonus": 0,
+    "total": 110000
+  },
+  "Октябрь-2024": {
+    "oklad": 110000,
+    "closes": {
+      "plan": 0,
+      "fact": 6,
+      "bonus_plan": 0,
+      "percent": 1.6722408026755853,
+      "bonus_fact": 0
+    },
+    "rating": {
+      "plan": 0,
+      "fact": 0.92,
+      "bonus_plan": 1.6722408026755855,
+      "percent": 0
+    },
+    "bonus": 0,
+    "total": 110000
+  },
+  "Ноябрь-2024": {
+    "oklad": 110000,
+    "closes": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0,
+      "bonus_fact": 0
+    },
+    "rating": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0
+    },
+    "bonus": 0,
+    "total": 110000
+  },
+  "Декабрь-2024": {
+    "oklad": 115000,
+    "closes": {
+      "plan": 0,
+      "fact": 11,
+      "bonus_plan": 0,
+      "percent": 1.6722408026755855,
+      "bonus_fact": 0
+    },
+    "rating": {
+      "plan": 0,
+      "fact": 0.96,
+      "bonus_plan": 1.6722408026755855,
+      "percent": 0
+    },
+    "bonus": 0,
+    "total": 115000
+  },
+  "Январь-2025": {
+    "oklad": 115000,
+    "closes": {
+      "plan": 0,
+      "fact": 9,
+      "bonus_plan": 0,
+      "percent": 1.6722408026755853,
+      "bonus_fact": 0
+    },
+    "rating": {
+      "plan": 0,
+      "fact": 0.92,
+      "bonus_plan": 1.6722408026755855,
+      "percent": 0
+    },
+    "bonus": 0,
+    "total": 115000
+  },
+  "Февраль-2025": {
+    "oklad": 135000,
+    "closes": {
+      "plan": 8,
+      "fact": 13,
+      "bonus_plan": 35000,
+      "percent": 1.1828935395814377,
+      "bonus_fact": 45500
+    },
+    "rating": {
+      "plan": 0.85,
+      "fact": 0.94,
+      "bonus_plan": 1.0400300944878405,
+      "percent": 19500
+    },
+    "bonus": 65000,
+    "total": 200000
+  },
+  "Март-2025": {
+    "oklad": 135000,
+    "closes": {
+      "plan": 14,
+      "fact": 16,
+      "bonus_plan": 35000,
+      "percent": 1.0529086601737299,
+      "bonus_fact": 45500
+    },
+    "rating": {
+      "plan": 0.85,
+      "fact": 0.912,
+      "bonus_plan": 1.0280968034305968,
+      "percent": 19500
+    },
+    "bonus": 65000,
+    "total": 200000
+  },
+  "Апрель-2025": {
+    "oklad": 135000,
+    "closes": {
+      "plan": 10,
+      "fact": 9,
+      "bonus_plan": 35000,
+      "percent": 0.9,
+      "bonus_fact": 24500
+    },
+    "rating": {
+      "plan": 0.9,
+      "fact": 0.9,
+      "bonus_plan": 1,
+      "percent": 15000
+    },
+    "bonus": 39500,
+    "total": 174500
+  },
+  "Май-2025": {
+    "oklad": 135000,
+    "closes": {
+      "plan": 7,
+      "fact": 13,
+      "bonus_plan": 35000,
+      "percent": 1.2278050623347185,
+      "bonus_fact": 52500
+    },
+    "rating": {
+      "plan": 0.9,
+      "fact": 0.912,
+      "bonus_plan": 1.0053176009947353,
+      "percent": 19500
+    },
+    "bonus": 72000,
+    "total": 207000
+  },
+  "Июнь-2025": {
+    "oklad": 135000,
+    "closes": {
+      "plan": 7,
+      "fact": 9,
+      "bonus_plan": 30000,
+      "percent": 1.0980966325036603,
+      "bonus_fact": 39000
+    },
+    "rating": {
+      "plan": 0.9,
+      "fact": 0.936,
+      "bonus_plan": 1.0157043519024924,
+      "percent": 26000
+    },
+    "bonus": 65000,
+    "total": 200000
+  },
+  "Июль-2025": {
+    "oklad": 135000,
+    "closes": {
+      "plan": 6,
+      "fact": 6,
+      "bonus_plan": 30000,
+      "percent": 1,
+      "bonus_fact": 30000
+    },
+    "rating": {
+      "plan": 0.9,
+      "fact": 0.9333333333333333,
+      "bonus_plan": 1.0145662729183273,
+      "percent": 26000
+    },
+    "bonus": 56000,
+    "total": 191000
+  },
+  "Август-2025": {
+    "oklad": 160000,
+    "closes": {
+      "plan": 6,
+      "fact": 8,
+      "bonus_plan": 30000,
+      "percent": 1.1117287381878822,
+      "bonus_fact": 39000
+    },
+    "rating": {
+      "plan": 0.9,
+      "fact": 0.9,
+      "bonus_plan": 1,
+      "percent": 20000
+    },
+    "bonus": 59000,
+    "total": 219000
+  },
+  "Сентябрь-2025": {
+    "oklad": 160000,
+    "closes": {
+      "plan": 5,
+      "fact": 6,
+      "bonus_plan": 30000,
+      "percent": 1.0718113612004287,
+      "bonus_fact": 39000
+    },
+    "rating": {
+      "plan": 0.9,
+      "fact": 0.96,
+      "bonus_plan": 1.0257725349403768,
+      "percent": 26000
+    },
+    "bonus": 65000,
+    "total": 225000
+  },
+  "Октябрь-2025": {
+    "oklad": 160000,
+    "closes": {
+      "plan": 7,
+      "fact": 3,
+      "bonus_plan": 30000,
+      "percent": 0.42857142857142855,
+      "bonus_fact": 3000
+    },
+    "rating": {
+      "plan": 0.9,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0
+    },
+    "bonus": 3000,
+    "total": 163000
+  },
+  "Ноябрь-2025": {
+    "oklad": 160000,
+    "closes": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0,
+      "bonus_fact": 0
+    },
+    "rating": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0
+    },
+    "bonus": 0,
+    "total": 160000
+  },
+  "Декабрь-2025": {
+    "oklad": 160000,
+    "closes": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0,
+      "bonus_fact": 0
+    },
+    "rating": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0
+    },
+    "bonus": 0,
+    "total": 160000
+  },
+  "Январь-2026": {
+    "oklad": 160000,
+    "closes": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0,
+      "bonus_fact": 0
+    },
+    "rating": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0
+    },
+    "bonus": 0,
+    "total": 160000
+  },
+  "Февраль-2026": {
+    "oklad": 160000,
+    "closes": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0,
+      "bonus_fact": 0
+    },
+    "rating": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0
+    },
+    "bonus": 0,
+    "total": 160000
+  },
+  "Март-2026": {
+    "oklad": 160000,
+    "closes": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0,
+      "bonus_fact": 0
+    },
+    "rating": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0
+    },
+    "bonus": 0,
+    "total": 160000
+  },
+  "Апрель-2026": {
+    "oklad": 160000,
+    "closes": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0,
+      "bonus_fact": 0
+    },
+    "rating": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0
+    },
+    "bonus": 0,
+    "total": 160000
+  },
+  "Май-2026": {
+    "oklad": 160000,
+    "closes": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0,
+      "bonus_fact": 0
+    },
+    "rating": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0
+    },
+    "bonus": 0,
+    "total": 160000
+  },
+  "Июнь-2026": {
+    "oklad": 160000,
+    "closes": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0,
+      "bonus_fact": 0
+    },
+    "rating": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0
+    },
+    "bonus": 0,
+    "total": 160000
+  },
+  "Июль-2026": {
+    "oklad": 160000,
+    "closes": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0,
+      "bonus_fact": 0
+    },
+    "rating": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0
+    },
+    "bonus": 0,
+    "total": 160000
+  },
+  "Август-2026": {
+    "oklad": 160000,
+    "closes": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0,
+      "bonus_fact": 0
+    },
+    "rating": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0
+    },
+    "bonus": 0,
+    "total": 160000
+  },
+  "Сентябрь-2026": {
+    "oklad": 160000,
+    "closes": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0,
+      "bonus_fact": 0
+    },
+    "rating": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0
+    },
+    "bonus": 0,
+    "total": 160000
+  },
+  "Октябрь-2026": {
+    "oklad": 160000,
+    "closes": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0,
+      "bonus_fact": 0
+    },
+    "rating": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0
+    },
+    "bonus": 0,
+    "total": 160000
+  },
+  "Ноябрь-2026": {
+    "oklad": 160000,
+    "closes": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0,
+      "bonus_fact": 0
+    },
+    "rating": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0
+    },
+    "bonus": 0,
+    "total": 160000
+  },
+  "Декабрь-2026": {
+    "oklad": 160000,
+    "closes": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0,
+      "bonus_fact": 0
+    },
+    "rating": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0
+    },
+    "bonus": 0,
+    "total": 160000
+  },
+  "Январь-2027": {
+    "oklad": 160000,
+    "closes": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0,
+      "bonus_fact": 0
+    },
+    "rating": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0
+    },
+    "bonus": 0,
+    "total": 160000
+  },
+  "Февраль-2027": {
+    "oklad": 160000,
+    "closes": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0,
+      "bonus_fact": 0
+    },
+    "rating": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0
+    },
+    "bonus": 0,
+    "total": 160000
+  },
+  "Март-2027": {
+    "oklad": 160000,
+    "closes": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0,
+      "bonus_fact": 0
+    },
+    "rating": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0
+    },
+    "bonus": 0,
+    "total": 160000
+  },
+  "Апрель-2027": {
+    "oklad": 160000,
+    "closes": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0,
+      "bonus_fact": 0
+    },
+    "rating": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0
+    },
+    "bonus": 0,
+    "total": 160000
+  },
+  "Май-2027": {
+    "oklad": 160000,
+    "closes": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0,
+      "bonus_fact": 0
+    },
+    "rating": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0
+    },
+    "bonus": 0,
+    "total": 160000
+  },
+  "Июнь-2027": {
+    "oklad": 160000,
+    "closes": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0,
+      "bonus_fact": 0
+    },
+    "rating": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0
+    },
+    "bonus": 0,
+    "total": 160000
+  },
+  "Июль-2027": {
+    "oklad": 160000,
+    "closes": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0,
+      "bonus_fact": 0
+    },
+    "rating": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0
+    },
+    "bonus": 0,
+    "total": 160000
+  },
+  "Август-2027": {
+    "oklad": 160000,
+    "closes": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0,
+      "bonus_fact": 0
+    },
+    "rating": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0
+    },
+    "bonus": 0,
+    "total": 160000
+  },
+  "Сентябрь-2027": {
+    "oklad": 160000,
+    "closes": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0,
+      "bonus_fact": 0
+    },
+    "rating": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0
+    },
+    "bonus": 0,
+    "total": 160000
+  },
+  "Октябрь-2027": {
+    "oklad": 160000,
+    "closes": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0,
+      "bonus_fact": 0
+    },
+    "rating": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0
+    },
+    "bonus": 0,
+    "total": 160000
+  },
+  "Ноябрь-2027": {
+    "oklad": 160000,
+    "closes": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0,
+      "bonus_fact": 0
+    },
+    "rating": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0
+    },
+    "bonus": 0,
+    "total": 160000
+  },
+  "Декабрь-2027": {
+    "oklad": 160000,
+    "closes": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0,
+      "bonus_fact": 0
+    },
+    "rating": {
+      "plan": 0,
+      "fact": 0,
+      "bonus_plan": 0,
+      "percent": 0
+    },
+    "bonus": 0,
+    "total": 160000
+  }
+}
