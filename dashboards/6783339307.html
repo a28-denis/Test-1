@@ -141,24 +141,29 @@ select:focus{outline:none;background:#2a2a2a}
 </div>
 </body>
 <script>
+Telegram.WebApp.ready();
+const webApp=Telegram.WebApp;
+const platform=webApp.platform;
+if (platform === 'android' || platform === 'ios') {webApp.expand();}
+const user=webApp.initDataUnsafe.user||{};
 let allData={};
 const monthsMap={'январь':1,'февраль':2,'март':3,'апрель':4,'май':5,'июнь':6,'июль':7,'август':8,'сентябрь':9,'октябрь':10,'ноябрь':11,'декабрь':12};
 const monthsNames=Object.keys(monthsMap);
 const now=new Date();
 const currentMonth=monthsNames[now.getMonth()];
 const currentYear=now.getFullYear().toString();
-document.getElementById('avatar').style.backgroundImage='url("https://raw.githubusercontent.com/a28-denis/Test-1/main/images/7018103762.jpg")';
+document.getElementById('avatar').style.backgroundImage='url("https://raw.githubusercontent.com/a28-denis/Test-1/main/images/6783339307.jpg")';
 async function loadAllData(){
 const loader=document.getElementById('loader');
 const content=document.getElementById('content');
 try{
-const response=await fetch('https://raw.githubusercontent.com/a28-denis/Test-1/main/BD/7018103762.json');
+const response=await fetch('https://raw.githubusercontent.com/a28-denis/Test-1/main/BD/6783339307.json');
 if(!response.ok)throw new Error('Network error');
 allData=await response.json();
 if(!allData||typeof allData!=='object')throw new Error('Invalid data format');
 updateUI();
 }catch(error){
-Telegram.WebApp.showAlert('Ошибка загрузки данных. Попробуйте обновить.');
+webApp.showAlert('Ошибка загрузки данных. Попробуйте обновить.');
 }finally{
 loader.style.display='none';
 content.style.display='block';
