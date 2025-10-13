@@ -6,7 +6,13 @@
 <title>HR Дашборд</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
+<style>
+/* Basic loader styles */
+.loader{position:fixed;top:0;left:0;width:100%;height:100%;background:#585858;display:flex;align-items:center;justify-content:center;z-index:100}
+.spinner svg{width:60px;height:60px;animation:svg-rotate 1.6s cubic-bezier(0.3,0.0,0.1,1) infinite}
+@keyframes svg-rotate{0%{transform:rotate(0deg);stroke-dasharray:1,150;stroke-dashoffset:0}50%{stroke-dasharray:90,150;stroke-dashoffset:-35}100%{transform:rotate(360deg);stroke-dasharray:90,150;stroke-dashoffset:-124}}
+.error{text-align:center;padding:20px;color:#ff6b6b}
+</style>
 </head>
 <body>
 <div class="loader" id="loader">
@@ -16,8 +22,106 @@
 </svg>
 </div>
 </div>
-<div id="dashboard-container"></div>
+<div id="app-container"></div>
 
-<script src="js/app.js"></script>
+<script>
+// Конфигурация
+const CONFIG = {
+    USER_ID: '7018103762' // Меняйте здесь для теста: '7018103762' или '6783339307'
+};
+
+// Инициализация
+Telegram.WebApp.ready();
+if (Telegram.WebApp.platform === 'android' || Telegram.WebApp.platform === 'ios') {
+    Telegram.WebApp.expand();
+}
+
+// Определяем ID пользователя
+function getUserId() {
+    const tgUser = Telegram.WebApp.initDataUnsafe.user;
+    return tgUser ? tgUser.id.toString() : CONFIG.USER_ID;
+}
+
+// Основная функция загрузки
+async function loadApp() {
+    const userId = getUserId();
+    console.log('Loading dashboard for user:', userId);
+    
+    try {
+        // Загружаем данные
+        const data = await loadData(userId);
+        
+        // Определяем тип дашборда по структуре данных
+        const dashboardType = detectDashboardType(data);
+        
+        // Загружаем соответствующий дашборд
+        await loadDashboard(dashboardType, data, userId);
+        
+    } catch (error) {
+        showError(`Ошибка загрузки: ${error.message}`);
+    }
+}
+
+// Определяем тип дашборда по структуре данных
+function detectDashboardType(data) {
+    const firstPeriod = data[Object.keys(data)[0]];
+    if (firstPeriod.sprint1 && firstPeriod.sprint2) {
+        return 'a28';
+    } else if (firstPeriod.closes && firstPeriod.rating) {
+        return 'a18';
+    }
+    return 'a28'; // по умолчанию
+}
+
+// Загрузка данных
+async function loadData(userId) {
+    const response = await fetch(`BD/${userId}.json`);
+    if (!response.ok) throw new Error(`Ошибка загрузки данных для пользователя ${userId}`);
+    return await response.json();
+}
+
+// Загрузка дашборда
+async function loadDashboard(type, data, userId) {
+    const response = await fetch(`dashboards/dashboard-${type}.html`);
+    if (!response.ok) throw new Error(`Дашборд типа ${type} не найден`);
+    
+    const html = await response.text();
+    document.getElementById('app-container').innerHTML = html;
+    document.getElementById('loader').style.display = 'none';
+    
+    // Инициализируем дашборд
+    initializeDashboard(type, data, userId);
+}
+
+// Инициализация конкретного дашборда
+function initializeDashboard(type, data, userId) {
+    // Здесь будет логика инициализации конкретного дашборда
+    // Пока просто покажем данные в консоли
+    console.log(`Dashboard ${type} loaded for user ${userId}:`, data);
+    
+    // Для теста - просто отобразим JSON
+    document.getElementById('app-container').innerHTML = `
+        <div style="padding: 20px; background: #585858; color: white;">
+            <h3>Дашборд ${type} для пользователя ${userId}</h3>
+            <pre>${JSON.stringify(data, null, 2)}</pre>
+        </div>
+    `;
+}
+
+// Показать ошибку
+function showError(message) {
+    document.getElementById('loader').style.display = 'none';
+    document.getElementById('app-container').innerHTML = `
+        <div class="error">
+            <h3>Ошибка</h3>
+            <p>${message}</p>
+            <button onclick="location.reload()" style="background: #fdec22; border: none; padding: 10px 20px; border-radius: 8px; margin-top: 10px; cursor: pointer;">Обновить</button>
+        </div>
+    `;
+}
+
+// Запуск
+document.addEventListener('DOMContentLoaded', loadApp);
+</script>
 </body>
 </html>
