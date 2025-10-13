@@ -7,6 +7,12 @@
 </head>
 <body>
     <script>
+        Telegram.WebApp.ready();
+        const webApp=Telegram.WebApp;
+        const platform=webApp.platform;
+        if (platform === 'android' || platform === 'ios') {webApp.expand();}
+        const user=webApp.initDataUnsafe.user||{};
+        
         // Константа user_id
         const user_id = '6783339307';
 
@@ -15,4 +21,5 @@
     </script>
 </body>
 </html>
+
 
