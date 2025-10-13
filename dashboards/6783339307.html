@@ -141,11 +141,6 @@ select:focus{outline:none;background:#2a2a2a}
 </div>
 </body>
 <script>
-Telegram.WebApp.ready();
-const webApp=Telegram.WebApp;
-const platform=webApp.platform;
-if (platform === 'android' || platform === 'ios') {webApp.expand();}
-const user=webApp.initDataUnsafe.user||{};
 let allData={};
 const monthsMap={'январь':1,'февраль':2,'март':3,'апрель':4,'май':5,'июнь':6,'июль':7,'август':8,'сентябрь':9,'октябрь':10,'ноябрь':11,'декабрь':12};
 const monthsNames=Object.keys(monthsMap);
@@ -163,7 +158,7 @@ allData=await response.json();
 if(!allData||typeof allData!=='object')throw new Error('Invalid data format');
 updateUI();
 }catch(error){
-webApp.showAlert('Ошибка загрузки данных. Попробуйте обновить.');
+Telegram.WebApp.showAlert('Ошибка загрузки данных. Попробуйте обновить.');
 }finally{
 loader.style.display='none';
 content.style.display='block';
