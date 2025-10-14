@@ -442,14 +442,14 @@
   },
   "октябрь-2025": {
     "oklad": 145000,
-    "epic_names": "нет закрытых эпиков",
+    "epic_names": "Мотивация команды Slaver | Разработка::Мотивация | Р00-Михаил",
     "sprint1": {
       "tasks_done": 4,
       "total_tasks": 6,
       "percent": 66.66666666666666,
-      "epics_closed": 0,
-      "bonus": 0,
-      "total_bonus": 0
+      "epics_closed": 2,
+      "bonus": 14500,
+      "total_bonus": 14500
     },
     "sprint2": {
       "tasks_done": 0,
@@ -459,7 +459,7 @@
       "bonus": 0,
       "total_bonus": 0
     },
-    "total": 145000
+    "total": 159500
   },
   "ноябрь-2025": {
     "oklad": 145000,
