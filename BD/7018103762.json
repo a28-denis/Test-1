@@ -466,8 +466,8 @@
     "epic_names": "нет закрытых эпиков",
     "sprint1": {
       "tasks_done": 3,
-      "total_tasks": 6,
-      "percent": 50,
+      "total_tasks": 5,
+      "percent": 60,
       "epics_closed": 0,
       "bonus": 0,
       "total_bonus": 0
