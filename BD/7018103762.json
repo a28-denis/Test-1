@@ -465,12 +465,12 @@
     "oklad": 145000,
     "epic_names": "нет закрытых эпиков",
     "sprint1": {
-      "tasks_done": 3,
+      "tasks_done": 5,
       "total_tasks": 5,
-      "percent": 60,
+      "percent": 100,
       "epics_closed": 0,
       "bonus": 0,
-      "total_bonus": 0
+      "total_bonus": 21750
     },
     "sprint2": {
       "tasks_done": 0,
@@ -480,7 +480,7 @@
       "bonus": 0,
       "total_bonus": 0
     },
-    "total": 145000
+    "total": 166750
   },
   "декабрь-2025": {
     "oklad": 145000,
