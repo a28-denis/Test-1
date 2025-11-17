@@ -442,7 +442,7 @@
   },
   "октябрь-2025": {
     "oklad": 145000,
-    "epic_names": "WebApp v1 | Мотивация::Мотивация команды Slaver | Разработка::Мотивация | Р00-Михаил",
+    "epic_names": "WebApp MVP | Мотивация::Мотивация команды Slaver | Разработка::Мотивация | Р00-Михаил",
     "sprint1": {
       "tasks_done": 6,
       "total_tasks": 6,
@@ -474,7 +474,7 @@
     },
     "sprint2": {
       "tasks_done": 0,
-      "total_tasks": 3,
+      "total_tasks": 4,
       "percent": 0,
       "epics_closed": 0,
       "bonus": 0,
