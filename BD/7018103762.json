@@ -473,14 +473,14 @@
       "total_bonus": 21750
     },
     "sprint2": {
-      "tasks_done": 1,
-      "total_tasks": 4,
-      "percent": 25,
+      "tasks_done": 3,
+      "total_tasks": 3,
+      "percent": 100,
       "epics_closed": 0,
       "bonus": 0,
-      "total_bonus": 0
+      "total_bonus": 21750
     },
-    "total": 166750
+    "total": 188500
   },
   "декабрь-2025": {
     "oklad": 145000,
