@@ -1,222 +1,409 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>HR Дашборд</title>
-<script src="https://telegram.org/js/telegram-web-app.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-*{scrollbar-width:none;-ms-overflow-style:none}::-webkit-scrollbar{display:none}
-body{font-family:Manrope,sans-serif;background:#585858;color:#f3f3f3;margin:0;padding:2px;display:flex;flex-direction:column;align-items:center;min-height:100vh;font-size:15px;overflow-x:hidden}
-.card{background:#585858;border-radius:12px;padding:12px;width:calc(100vw - 12px);margin:2px;box-sizing:border-box}
-.header-section{display:flex;flex-direction:column;gap:12px;margin-bottom:20px}
-.employee-block,.total-block{background:#3e3e3e;border-radius:10px;padding:8px;display:flex;flex-direction:column;min-height:126px;justify-content:space-between;box-shadow:0 2px 8px rgba(0,0,0,0.2)}
-.header{display:flex;align-items:center;gap:10px;margin-bottom:6px}
-.avatar{width:48px;height:48px;border-radius:50%;background:#ddd no-repeat center/cover}
-.name{font-size:18px;font-weight:600;margin:0;line-height:1.1}
-.position{font-size:14px;color:#b7b7b7;margin:3px 0 0;line-height:1.1}
-.total-block{display:flex;flex-direction:column;justify-content:space-between}
-.metric.no-border.bonus{margin-bottom:3px;position:relative}
-.bonus-label,.total-sum{font-size:17px;line-height:1.2;padding-left:4px}
-.bonus-row{display:flex;justify-content:space-between;gap:0;padding:3px 0;font-size:14px;position:relative}
-.bonus-row::after{content:'';position:absolute;top:0;bottom:0;left:50%;width:1px;background:#585858}
-.bonus-row div{min-width:80px;text-align:center;padding:0 8px}
-.period-title{font-size:12px;margin-bottom:6px;display:block}
-.bonus-amount{font-size:16px;white-space:nowrap}
-.total-row{display:flex;justify-content:center;align-items:center;width:168px;padding:6px 0}
-.total-amount{font-size:19px;font-weight:600;white-space:nowrap;line-height:1.2}
-.bonus-divider{border-top:1px solid #585858;margin:3px 0}
-.period-select{display:flex;gap:8px;margin-bottom:3px;padding-top:4px;border-top:1px solid #585858}
-select{flex:1;padding:4px 8px;border:none;border-radius:10px;background:#2a2a2a;font-size:13px;text-align:center;font-family:Manrope,sans-serif;outline:none;appearance:auto;color:#f3f3f3;text-align-last:center}
-select:focus{outline:none;background:#2a2a2a}
-.metric{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid #585858;font-size:15px;line-height:1.2}
-.metric.no-border{border-bottom:none}
-.oklad-metric{font-size:15px;display:flex;justify-content:space-between;padding-left:4px;line-height:1}
-.oklad-metric span:last-child{margin-right:8px}
-.sprint-container{margin-top:4px}
-.sprint-content{display:flex;gap:12px}
-.sprint-block-wrapper{flex:1;display:flex;flex-direction:column}
-.sprint-title{font-size:14px;font-weight:600;text-align:left;margin:0 0 4px 8px;padding:0;align-self:flex-start}
-.sprint-block{flex:1;background:#3e3e3e;border-radius:10px;padding:10px;display:flex;flex-direction:column;box-shadow:0 2px 8px rgba(0,0,0,0.2)}
-.task-progress-block,.epic-bonus-block{background:#2a2a2a;border-radius:8px;padding:10px}
-.task-progress-block{margin-bottom:8px}
-.epic-bonus-block{margin-top:auto}
-.epic-bonus-block .metric{padding:4px 0;font-size:14px}
-.task-progress-block .metric{font-size:14px}
-.progress-bar{height:15px;background:#585858;border-radius:7.5px;position:relative;margin-top:2px}
-.progress-fill{height:100%;background:#fdec22;border-radius:7.5px;position:absolute;top:0;left:0;display:flex;align-items:center;justify-content:center;font-size:11px;color:#000000;min-width:20px}
-.loader{position:fixed;top:0;left:0;width:100%;height:100%;background:#585858;display:flex;align-items:center;justify-content:center;z-index:100}
-.spinner svg{width:60px;height:60px;animation:svg-rotate 1.6s cubic-bezier(0.3,0.0,0.1,1) infinite}
-@keyframes svg-rotate{0%{transform:rotate(0deg);stroke-dasharray:1,150;stroke-dashoffset:0}50%{stroke-dasharray:90,150;stroke-dashoffset:-35}100%{transform:rotate(360deg);stroke-dasharray:90,150;stroke-dashoffset:-124}}
-.epics-block-wrapper{display:flex;flex-direction:column;margin-bottom:12px}
-.epics-title{font-size:14px;font-weight:600;text-align:left;margin:0 0 4px 8px;padding:0;align-self:flex-start}
-.epics-block{background:#3e3e3e;border-radius:8px;padding:6px;display:flex;flex-direction:column;box-shadow:0 2px 8px rgba(0,0,0,0.2)}
-.epic-item{font-size:13px;line-height:1.4;margin:3px 0;text-align:center;border-bottom:1px solid #585858}
-.epic-item:last-child{border-bottom:none}
-.content{display:none}
-@media (min-width:600px){.header-section{flex-direction:row;align-items:stretch}.employee-block,.total-block{flex:1;min-height:120px}}
-@media (max-width:360px){.card{padding:10px;margin:2px;width:calc(100vw - 8px)}.header,.period-select{margin-bottom:6px}.avatar{width:40px;height:40px}.name{font-size:17px}.bonus-row div{min-width:60px}.total-row{width:128px}.sprint-title,.epics-title{margin-bottom:2px;margin-left:4px}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <title>MarketLab WebApp</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{color-scheme:light;--safe-area-inset-bottom:0px}
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{margin:0;padding:0;height:100dvh;width:100dvw;overflow:hidden;background:#f5f5f5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+    body{position:relative;color:#000}
+    .no-scrollbar::-webkit-scrollbar{display:none}
+    .no-scrollbar{-ms-overflow-style:none;scrollbar-width:none}
+
+    .field-label{font-size:14px;font-weight:395;color:#919191;line-height:1.3;margin-bottom:4px}
+    .field-value{font-size:18px;font-weight:405;color:#000;line-height:1.3}
+    .field-value.single-line{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .section-title{font-size:14px;font-weight:457;color:#a8a8a8;line-height:1.3}
+    .menu-item{font-size:14px;font-weight:556;color:#000;line-height:1.3}
+
+    .section-wrapper{padding:0 12px}
+    @media(min-width:768px){.section-wrapper{padding:0 calc(50vw - 360px)}}
+
+    .icon-bg{width:32px;height:32px;background:#f0faff;border-radius:999px;display:flex;align-items:center;justify-content:center}
+    .icon-img{width:16px;height:16px;object-fit:contain}
+    .menu-icon-row{gap:6px}
+    .menu-end-row{gap:6px}
+    .menu-end-inner{gap:6px}
+    .chevron-right-icon{width:16px;height:16px;object-fit:contain!important}
+
+    [data-account-only]{display:none}
+    html.tab-account [data-account-only]{display:block}
+
+    #profileContainer,#avatar,#nameBadge,#scrollArea{transition:transform .45s cubic-bezier(.22,.61,.36,1),opacity .45s cubic-bezier(.22,.61,.36,1);will-change:transform,opacity;transform:translateZ(0);backface-visibility:hidden;contain:layout paint style}
+    #avatar{transition:opacity .45s cubic-bezier(.22,.61,.36,1),transform .45s cubic-bezier(.22,.61,.36,1),filter .45s ease}
+    #avatar img{width:100%;height:100%;object-fit:cover;border-radius:inherit}
+
+    #profileContainer{position:absolute;left:50%;top:101px;transform:translateX(-50%);width:172px;height:131px;z-index:30}
+    #avatar{position:absolute;left:41px;top:0;width:90px;height:90px;background:#fff;border-radius:999px;overflow:hidden;border:3.5px solid #fff;box-shadow:0 10px 25px rgba(0,0,0,.2)}
+    #nameBadge{position:absolute;left:0;top:98px;width:172px;height:30px;background:#fff;border-radius:999px;font-size:18px;font-weight:556;color:#000;box-shadow:0 4px 12px rgba(0,0,0,.1);display:flex;align-items:center;justify-content:center}
+    #scrollArea{position:absolute;left:0;right:0;top:245px;bottom:0;overflow-y:auto;padding-bottom:110px}
+
+    .bottom-nav{position:fixed;bottom:0;left:0;right:0;height:96px;padding-bottom:calc(max(env(safe-area-inset-bottom),var(--safe-area-inset-bottom))+20px);pointer-events:none;z-index:1000}
+    .glass-nav{position:absolute;bottom:max(env(safe-area-inset-bottom),20px);left:50%;transform:translateX(-50%);width:370px;height:66px;border-radius:24px;overflow:hidden;pointer-events:auto;background:rgba(255,255,255,0.52);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.4);box-shadow:0 8px 32px rgba(0,0,0,0.08),0 2px 8px rgba(0,0,0,0.06)}
+    .glass-nav::before{content:'';position:absolute;top:0;left:8px;right:8px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.9),transparent);opacity:0.7}
+    .nav-items{position:absolute;inset:0;display:flex;justify-content:center;align-items:center;gap:48px;padding:0 30px}
+    .nav-item{position:relative;width:40px;height:40px;display:flex;align-items:center;justify-content:center;transition:transform .25s cubic-bezier(.22,.61,.36,1)}
+    .nav-item:active{transform:scale(0.92)}
+    .nav-item img{width:26px;height:26px;position:absolute;inset:0;margin:auto;transition:opacity .3s ease}
+    .nav-item .inactive{opacity:1}
+    .nav-item .active{opacity:0}
+    .nav-item.active .inactive{opacity:0}
+    .nav-item.active .active{opacity:1}
+
+    .under-construction{position:absolute;inset:0;background:#f9f9f9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:40px;font-size:19px;color:#555;opacity:0;pointer-events:none;transition:opacity .4s ease}
+    .under-construction.active{opacity:1;pointer-events:auto}
+    .under-construction h2{font-size:32px;font-weight:700;color:#000;margin:0}
+
+    #tab-profile .py-4{padding:12px 0!important}
+    #tab-profile .py-4.flex.items-center.justify-between{min-height:56px}
+  </style>
 </head>
 <body>
-<div class="loader" id="loader">
-<div class="spinner">
-<svg viewBox="0 0 50 50">
-<circle cx="25" cy="25" r="20" fill="none" stroke="#fdec22" stroke-width="3" stroke-linecap="round"></circle>
-</svg>
-</div>
-</div>
-<div class="content" id="content">
-<div class="card">
-<div class="header-section">
-<div class="employee-block">
-<div class="header">
-<div class="avatar" id="avatar"></div>
-<div class="info">
-<h2 class="name" id="name">А28-Денис</h2>
-<p class="position">Аналитик данных</p>
-</div>
-</div>
-<div class="metric no-border oklad-metric"><span>Оклад</span><span id="oklad">-- ₽</span></div>
-<div class="period-select">
-<select id="monthSelect"></select>
-<select id="yearSelect"></select>
-</div>
-</div>
-<div class="total-block">
-<div class="metric no-border bonus">
-<span class="bonus-label">Бонус</span>
-<div class="bonus-row">
-<div><span class="period-title">1 период</span><span class="bonus-amount" id="bonus1">-- ₽</span></div>
-<div><span class="period-title">2 период</span><span class="bonus-amount" id="bonus2">-- ₽</span></div>
-</div>
-</div>
-<div class="bonus-divider"></div>
-<div class="metric no-border">
-<span class="total-sum">Выплата</span>
-<div class="total-row">
-<span class="total-amount" id="total">-- ₽</span>
-</div>
-</div>
-</div>
-</div>
-<div id="epics-block-wrapper" class="epics-block-wrapper" style="display:none">
-<h3 class="epics-title">Закрытые эпики</h3>
-<div id="epics-block" class="epics-block">
-<div id="epics-list"></div>
-</div>
-</div>
-<div class="sprint-container">
-<div class="sprint-content">
-<div class="sprint-block-wrapper">
-<h3 class="sprint-title">1-й спринт</h3>
-<div class="sprint-block">
-<div class="task-progress-block">
-<div class="metric no-border"><span>Задачи</span><span id="tasks1">--</span></div>
-<div class="progress-bar"><div class="progress-fill" id="progressFill1" style="width:0%"></div></div>
-</div>
-<div class="epic-bonus-block">
-<div class="metric no-border"><span>Эпики</span><span id="epics1">--</span></div>
-<div class="metric no-border"><span>Бонус</span><span id="sprintBonus1">-- ₽</span></div>
-</div>
-</div>
-</div>
-<div class="sprint-block-wrapper">
-<h3 class="sprint-title">2-й спринт</h3>
-<div class="sprint-block">
-<div class="task-progress-block">
-<div class="metric no-border"><span>Задачи</span><span id="tasks2">--</span></div>
-<div class="progress-bar"><div class="progress-fill" id="progressFill2" style="width:0%"></div></div>
-</div>
-<div class="epic-bonus-block">
-<div class="metric no-border"><span>Эпики</span><span id="epics2">--</span></div>
-<div class="metric no-border"><span>Бонус</span><span id="sprintBonus2">-- ₽</span></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+  <div class="fixed inset-0 bg-neutral-100">
+    <div id="header" data-account-only class="absolute top-0 left-0 w-full bg-gradient-to-b from-[#d0ccff] to-[#8b82f5] z-20 overflow-hidden" style="height:146px">
+      <img src="icons/skull_vector.svg" class="absolute top-0 left-0 w-[145px] h-[172px] pointer-events-none" alt="">
+    </div>
+
+    <div id="profileContainer" data-account-only>
+      <div id="avatar"><img id="avatarImage" alt="Аватар"></div>
+      <div id="nameBadge">A02-Марина</div>
+    </div>
+
+    <div id="tab-profile" data-account-only hidden>
+      <div id="scrollArea" class="no-scrollbar">
+        <div class="section-wrapper">
+          <div class="mt-2 mb-6">
+            <div class="section-title ml-4 mb-2">ЛИЧНАЯ ИНФОРМАЦИЯ</div>
+            <div class="bg-white rounded-2xl px-4 py-1 shadow-sm">
+              <div class="py-4">
+                <div class="field-label">Отдел</div>
+                <div class="field-value single-line mt-0.5">Маркетинг и коммуникации</div>
+              </div>
+              <hr class="border-neutral-200">
+              <div class="py-4">
+                <div class="field-label">Должность</div>
+                <div class="field-value single-line mt-0.5">Менеджер коммуникаций</div>
+              </div>
+              <hr class="border-neutral-200">
+              <div class="py-4">
+                <div class="field-label">Почта</div>
+                <div class="field-value single-line mt-0.5">pashapashapasha@gmail.com</div>
+              </div>
+              <hr class="border-neutral-200">
+              <div class="py-4">
+                <div class="field-label">Стаж работы</div>
+                <div class="field-value mt-0.5">5 лет 1 месяц 15 дней</div>
+              </div>
+              <hr class="border-neutral-200">
+              <div class="py-4 flex items-center justify-between">
+                <div class="flex items-center menu-icon-row">
+                  <div class="icon-bg"><img src="icons/icon_job.svg" class="icon-img" alt=""></div>
+                  <div class="menu-item">Трудоустройство</div>
+                </div>
+                <div class="flex items-center menu-end-row">
+                  <span class="menu-item">Не оформлен</span>
+                  <img src="icons/vector_1.svg" class="chevron-right-icon" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-0 mb-6">
+            <div class="section-title ml-4 mb-2">ЗАРПЛАТА</div>
+            <div class="bg-white rounded-2xl px-4 py-1 shadow-sm">
+              <div class="py-4">
+                <div class="field-label">Оклад</div>
+                <div class="field-value mt-0.5">100 000 ₽</div>
+              </div>
+              <hr class="border-neutral-200">
+              <div class="py-4 flex items-center justify-between">
+                <div class="flex items-center menu-icon-row">
+                  <div class="icon-bg"><img src="icons/shape.svg" class="icon-img" alt=""></div>
+                  <div class="menu-item">Способ получения</div>
+                </div>
+                <div class="flex items-center menu-end-row">
+                  <div class="flex items-center menu-end-inner">
+                    <img src="icons/rapira_circle.svg" class="icon-img" alt="">
+                    <span class="menu-item">Код Rapira</span>
+                  </div>
+                  <img src="icons/vector_1.svg" class="chevron-right-icon" alt="">
+                </div>
+              </div>
+              <hr class="border-neutral-200">
+              <div class="py-4 flex items-center justify-between">
+                <div class="flex items-center menu-icon-row">
+                  <div class="icon-bg"><img src="icons/union.svg" class="icon-img" alt=""></div>
+                  <div class="menu-item">История начислений</div>
+                </div>
+                <img src="icons/vector_1.svg" class="chevron-right-icon" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="h-96"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="under-construction" class="under-construction">
+      <div style="font-size:92px">🦆</div>
+      <h2>Раздел в разработке</h2>
+      <p>Скоро здесь будет что-то крутое</p>
+    </div>
+
+    <div class="bottom-nav">
+      <div class="glass-nav">
+        <div class="nav-items">
+          <div class="nav-item" data-tab="1">
+            <img src="icons/btn_1_inactive.svg" class="inactive" alt="Главная">
+            <img src="icons/btn_1_active.svg" class="active" alt="Главная">
+          </div>
+          <div class="nav-item" data-tab="2">
+            <img src="icons/btn_2_inactive.svg" class="inactive" alt="Каталог">
+            <img src="icons/btn_2_active.svg" class="active" alt="Каталог">
+          </div>
+          <div class="nav-item" data-tab="3">
+            <img src="icons/btn_3_inactive.svg" class="inactive" alt="Заказы">
+            <img src="icons/btn_3_active.svg" class="active" alt="Заказы">
+          </div>
+          <div class="nav-item active" data-tab="4">
+            <img src="icons/btn_4_inactive.svg" class="inactive" alt="Профиль">
+            <img src="icons/btn_4_active.svg" class="active" alt="Профиль">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const refs = {
+        avatarImage: document.getElementById('avatarImage'),
+        avatar: document.getElementById('avatar'),
+        profileContainer: document.getElementById('profileContainer'),
+        nameBadge: document.getElementById('nameBadge'),
+        scrollArea: document.getElementById('scrollArea'),
+        tabProfile: document.getElementById('tab-profile'),
+        underConstruction: document.getElementById('under-construction'),
+        navItems: Array.from(document.querySelectorAll('.nav-item'))
+      };
+
+      const cfg = {
+        headerHeight: 146,
+        badgeHeight: 30,
+        badgeBottomOffset: 10,
+        badgeStartTop: 98,
+        profileStartTop: 101,
+        scrollStartTop: 245,
+        profileShiftRange: 70,
+        scrollShiftRange: 140,
+        scaleDelta: 0.35,
+        blurMax: 5,
+        maxScroll: 80
+      };
+
+      const state = {
+        ticking: false,
+        lastScrollTop: 0,
+        direction: 'none',
+        isPriming: false,
+        hasPrimed: false,
+        activeTab: null,
+        tg: null,
+        scrollEndTimer: null
+      };
+
+      const teardown = [];
+      const clamp01 = value => Math.min(Math.max(value, 0), 1);
+      const isAccountActive = () => root.classList.contains('tab-account');
+      const progressFromScroll = () => clamp01(refs.scrollArea.scrollTop / cfg.maxScroll);
+
+      const renderProgress = progress => {
+        refs.profileContainer.style.top = `${cfg.profileStartTop - cfg.profileShiftRange * progress}px`;
+        refs.scrollArea.style.top = `${cfg.scrollStartTop - cfg.scrollShiftRange * progress}px`;
+        refs.avatar.style.opacity = `${1 - progress}`;
+        refs.avatar.style.transform = `scale(${1 - cfg.scaleDelta * progress}) translateZ(0)`;
+        refs.avatar.style.filter = `blur(${cfg.blurMax * progress}px)`;
+
+        const targetBadgeTopInHeader = cfg.headerHeight - cfg.badgeBottomOffset - cfg.badgeHeight;
+        const targetBadgeTopWithinContainer = targetBadgeTopInHeader - (cfg.profileStartTop - cfg.profileShiftRange * progress);
+        const badgeTop = cfg.badgeStartTop + (targetBadgeTopWithinContainer - cfg.badgeStartTop) * progress;
+        refs.nameBadge.style.top = `${badgeTop}px`;
+      };
+
+      const updateAnimatedState = progressOverride => {
+        if (!isAccountActive()) return;
+        const progress = progressOverride ?? progressFromScroll();
+        renderProgress(progress);
+      };
+
+      const scheduleScrollEnd = () => {
+        if (!isAccountActive() || state.isPriming) return;
+        if (state.scrollEndTimer) clearTimeout(state.scrollEndTimer);
+        state.scrollEndTimer = setTimeout(() => onScrollEnd(), 120);
+      };
+
+      const onScroll = () => {
+        if (!isAccountActive() || state.ticking || state.isPriming) return;
+        state.ticking = true;
+        requestAnimationFrame(() => {
+          const current = refs.scrollArea.scrollTop;
+          state.direction = current > state.lastScrollTop ? 'down' : 'up';
+          state.lastScrollTop = current;
+          updateAnimatedState();
+          state.ticking = false;
+        });
+        scheduleScrollEnd();
+      };
+
+      const onScrollEnd = () => {
+        if (!isAccountActive() || state.isPriming) return;
+        const top = refs.scrollArea.scrollTop;
+        if (top > 0 && top < cfg.maxScroll) {
+          refs.scrollArea.scrollTo({ top: state.direction === 'down' ? cfg.maxScroll : 0, behavior: 'smooth' });
+        }
+      };
+
+      const initScroll = () => {
+        if (!refs.scrollArea) return;
+        refs.scrollArea.addEventListener('scroll', onScroll, { passive: true });
+      };
+
+      const triggerHaptic = () => {
+        try {
+          state.tg?.HapticFeedback?.impactOccurred('light');
+        } catch (_) {}
+      };
+
+      const warmUpAnimation = () => {
+        if (state.hasPrimed || !isAccountActive()) return;
+        state.hasPrimed = true;
+        state.isPriming = true;
+        const frames = [0, 0.3, 0.6, 1, 0.35, 0];
+        const drive = index => {
+          if (index >= frames.length) {
+            state.isPriming = false;
+            updateAnimatedState(0);
+            return;
+          }
+          requestAnimationFrame(() => {
+            renderProgress(frames[index]);
+            drive(index + 1);
+          });
+        };
+        drive(0);
+      };
+
+      const ensurePrimed = () => {
+        if (typeof window.requestIdleCallback === 'function') {
+          window.requestIdleCallback(() => warmUpAnimation(), { timeout: 240 });
+        } else {
+          setTimeout(warmUpAnimation, 160);
+        }
+      };
+
+      const setActiveTab = tabId => {
+        state.activeTab = tabId;
+        refs.navItems.forEach(item => item.classList.toggle('active', item.dataset.tab === tabId));
+        const accountMode = tabId === '4';
+        root.classList.toggle('tab-account', accountMode);
+        refs.tabProfile.hidden = !accountMode;
+        refs.underConstruction.classList.toggle('active', !accountMode);
+        if (accountMode) {
+          refs.scrollArea.scrollTop = 0;
+          state.lastScrollTop = 0;
+          updateAnimatedState(0);
+          ensurePrimed();
+        }
+      };
+
+      const handleNavClick = tabId => {
+        if (state.activeTab === tabId) return;
+        triggerHaptic();
+        setActiveTab(tabId);
+      };
+
+      const registerNavHandlers = () => {
+        refs.navItems.forEach(item => item.addEventListener('click', () => handleNavClick(item.dataset.tab)));
+      };
+
+      const initAvatar = user => {
+        const src = user?.photo_url;
+        if (!src) return;
+        const preload = new Image();
+        preload.decoding = 'async';
+        preload.src = src;
+        const apply = () => { refs.avatarImage.src = src; };
+        preload.onload = apply;
+        preload.onerror = apply;
+      };
+
+      const updateColors = () => {
+        if (!state.tg) return;
+        const theme = state.tg.themeParams || {};
+        state.tg.setHeaderColor('#ffffff');
+        state.tg.setBackgroundColor('#ffffff');
+        root.style.setProperty('--tg-theme-bg-color', theme.bg_color || '#ffffff');
+        root.style.setProperty('--tg-theme-text-color', theme.text_color || '#000000');
+      };
+
+      const registerTgEvent = (name, handler) => {
+        if (!state.tg) return;
+        state.tg.onEvent(name, handler);
+        teardown.push(() => state.tg.offEvent(name, handler));
+      };
+
+      const handleSafeArea = () => {
+        root.style.setProperty('--safe-area-inset-bottom', `${state.tg?.safeAreaInset?.bottom || 0}px`);
+      };
+
+      const enterFullscreenFlow = () => {
+        if (!state.tg) return;
+        if (!['android', 'ios'].includes(state.tg.platform) || !state.tg.isVersionAtLeast('8.0')) return;
+        document.body.classList.add('mobile', `platform-${state.tg.platform}`);
+        setTimeout(() => {
+          state.tg.requestFullscreen().catch(() => state.tg.expand());
+        }, 300);
+        registerTgEvent('fullscreenChanged', () => {
+          if (!state.tg.isFullscreen) {
+            state.tg.requestFullscreen().catch(() => state.tg.expand());
+          }
+        });
+        registerTgEvent('fullscreenFailed', () => state.tg.expand());
+        registerTgEvent('safeAreaChanged', handleSafeArea);
+        handleSafeArea();
+      };
+
+      const bootstrap = () => {
+        state.tg = window.Telegram?.WebApp;
+        if (!state.tg) return;
+        state.tg.ready();
+        state.tg.expand();
+        state.tg.disableVerticalSwipes();
+        initAvatar(state.tg.initDataUnsafe?.user || null);
+        updateColors();
+        enterFullscreenFlow();
+        registerTgEvent('themeChanged', updateColors);
+        setActiveTab('4');
+      };
+
+      registerNavHandlers();
+      initScroll();
+      setActiveTab('4');
+
+      if (window.Telegram?.WebApp) {
+        bootstrap();
+      } else {
+        window.addEventListener('TelegramWebAppReady', bootstrap, { once: true });
+      }
+
+      window.addEventListener('beforeunload', () => {
+        teardown.forEach(fn => fn());
+      });
+    })();
+  </script>
 </body>
-<script>
-Telegram.WebApp.ready();
-const webApp=Telegram.WebApp;
-const platform=webApp.platform;
-if (platform === 'android' || platform === 'ios') {webApp.expand();}
-const user=webApp.initDataUnsafe.user||{};
-let allData={};
-const monthsMap={'январь':1,'февраль':2,'март':3,'апрель':4,'май':5,'июнь':6,'июль':7,'август':8,'сентябрь':9,'октябрь':10,'ноябрь':11,'декабрь':12};
-const monthsNames=Object.keys(monthsMap);
-const now=new Date();
-const currentMonth=monthsNames[now.getMonth()];
-const currentYear=now.getFullYear().toString();
-document.getElementById('avatar').style.backgroundImage='url("https://raw.githubusercontent.com/a28-denis/Test-1/main/images/7018103762.jpg")';
-async function loadAllData(){
-const loader=document.getElementById('loader');
-const content=document.getElementById('content');
-try{
-const response=await fetch('https://raw.githubusercontent.com/a28-denis/Test-1/main/BD/7018103762.json');
-if(!response.ok)throw new Error('Network error');
-allData=await response.json();
-if(!allData||typeof allData!=='object')throw new Error('Invalid data format');
-updateUI();
-}catch(error){
-webApp.showAlert('Ошибка загрузки данных. Попробуйте обновить.');
-}finally{
-loader.style.display='none';
-content.style.display='block';
-}
-}
-function updateUI(){
-const years=[...new Set(Object.keys(allData).map(p=>p.split('-')[1]))].sort((a,b)=>a-b);
-const yearSelect=document.getElementById('yearSelect');
-years.forEach(year=>yearSelect.appendChild(new Option(year,year)));
-yearSelect.value=currentYear;
-const monthSelect=document.getElementById('monthSelect');
-monthsNames.forEach(month=>monthSelect.appendChild(new Option(month.charAt(0).toUpperCase()+month.slice(1),month)));
-monthSelect.value=currentMonth;
-updateMetrics(`${monthSelect.value}-${yearSelect.value}`);
-}
-function updateMetrics(period){
-const data=allData[period]||{};
-const sprint1=data.sprint1||{};
-const sprint2=data.sprint2||{};
-const formatNum=num=>Number.isFinite(num)?num.toLocaleString('ru-RU'):'--';
-document.getElementById('oklad').textContent=`${formatNum(data.oklad)} ₽`;
-document.getElementById('tasks1').textContent=`${sprint1.tasks_done??'--'} / ${sprint1.total_tasks??'--'}`;
-document.getElementById('progressFill1').style.width=`${Math.round(sprint1.percent)||0}%`;
-document.getElementById('progressFill1').textContent=`${Math.round(sprint1.percent)||0}%`;
-document.getElementById('epics1').textContent=sprint1.epics_closed??'--';
-document.getElementById('sprintBonus1').textContent=`${formatNum(sprint1.bonus)} ₽`;
-document.getElementById('tasks2').textContent=`${sprint2.tasks_done??'--'} / ${sprint2.total_tasks??'--'}`;
-document.getElementById('progressFill2').style.width=`${Math.round(sprint2.percent)||0}%`;
-document.getElementById('progressFill2').textContent=`${Math.round(sprint2.percent)||0}%`;
-document.getElementById('epics2').textContent=sprint2.epics_closed??'--';
-document.getElementById('sprintBonus2').textContent=`${formatNum(sprint2.bonus)} ₽`;
-document.getElementById('bonus1').textContent=`${formatNum(sprint1.total_bonus)} ₽`;
-document.getElementById('bonus2').textContent=`${formatNum(sprint2.total_bonus)} ₽`;
-document.getElementById('total').textContent=`${formatNum(data.total)} ₽`;
-const epicsWrapper=document.getElementById('epics-block-wrapper');
-const epicsList=document.getElementById('epics-list');
-epicsList.innerHTML='';
-if(data.epic_names?.trim()&&data.epic_names!=='нет закрытых эпиков'){
-epicsWrapper.style.display='block';
-data.epic_names.split('::').forEach(epic=>{
-if(epic.trim()){
-const div=document.createElement('div');
-div.className='epic-item';
-div.textContent=epic.trim();
-epicsList.appendChild(div);
-}
-});
-}else{
-epicsWrapper.style.display='none';
-}
-}
-document.getElementById('monthSelect').addEventListener('change',()=>updateMetrics(`${monthSelect.value}-${yearSelect.value}`));
-document.getElementById('yearSelect').addEventListener('change',()=>updateMetrics(`${monthSelect.value}-${yearSelect.value}`));
-loadAllData();
-</script>
 </html>
