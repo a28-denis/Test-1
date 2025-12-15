@@ -484,14 +484,14 @@
   },
   "декабрь-2025": {
     "oklad": 145000,
-    "epic_names": "нет закрытых эпиков",
+    "epic_names": "WebApp | Подготовка и анализ",
     "sprint1": {
-      "tasks_done": 4,
+      "tasks_done": 6,
       "total_tasks": 6,
-      "percent": 66.66666666666666,
-      "epics_closed": 0,
-      "bonus": 0,
-      "total_bonus": 0
+      "percent": 100,
+      "epics_closed": 1,
+      "bonus": 7250,
+      "total_bonus": 29000
     },
     "sprint2": {
       "tasks_done": 0,
@@ -501,7 +501,7 @@
       "bonus": 0,
       "total_bonus": 0
     },
-    "total": 145000
+    "total": 174000
   },
   "январь-2026": {
     "oklad": 145000,
