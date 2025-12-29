@@ -484,7 +484,7 @@
   },
   "декабрь-2025": {
     "oklad": 145000,
-    "epic_names": "WebApp | Подготовка и анализ",
+    "epic_names": "Уведомления | Креативы::WebApp | Аккаунт::WebApp | Подготовка и анализ",
     "sprint1": {
       "tasks_done": 6,
       "total_tasks": 6,
@@ -497,11 +497,11 @@
       "tasks_done": 3,
       "total_tasks": 4,
       "percent": 75,
-      "epics_closed": 0,
-      "bonus": 0,
-      "total_bonus": 0
+      "epics_closed": 2,
+      "bonus": 14500,
+      "total_bonus": 14500
     },
-    "total": 174000
+    "total": 188500
   },
   "январь-2026": {
     "oklad": 145000,
