@@ -516,7 +516,7 @@
     },
     "sprint2": {
       "tasks_done": 0,
-      "total_tasks": 0,
+      "total_tasks": 1,
       "percent": 0,
       "epics_closed": 0,
       "bonus": 0,
