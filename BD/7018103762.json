@@ -515,9 +515,9 @@
       "total_bonus": 21750
     },
     "sprint2": {
-      "tasks_done": 0,
+      "tasks_done": 1,
       "total_tasks": 2,
-      "percent": 0,
+      "percent": 50,
       "epics_closed": 0,
       "bonus": 0,
       "total_bonus": 0
