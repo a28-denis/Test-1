@@ -528,12 +528,12 @@
     "oklad": 145000,
     "epic_names": "Аналитика креативов | Keitaro",
     "sprint1": {
-      "tasks_done": 3,
-      "total_tasks": 7,
-      "percent": 42.857142857142854,
+      "tasks_done": 5,
+      "total_tasks": 5,
+      "percent": 100,
       "epics_closed": 1,
       "bonus": 0,
-      "total_bonus": 7250
+      "total_bonus": 29000
     },
     "sprint2": {
       "tasks_done": 0,
@@ -543,7 +543,7 @@
       "bonus": 0,
       "total_bonus": 0
     },
-    "total": 152250
+    "total": 174000
   },
   "март-2026": {
     "oklad": 145000,
