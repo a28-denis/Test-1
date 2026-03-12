@@ -549,9 +549,9 @@
     "oklad": 145000,
     "epic_names": "нет закрытых эпиков",
     "sprint1": {
-      "tasks_done": 0,
+      "tasks_done": 5,
       "total_tasks": 8,
-      "percent": 0,
+      "percent": 62.5,
       "epics_closed": 0,
       "bonus": 0,
       "total_bonus": 0
