@@ -550,11 +550,11 @@
     "epic_names": "нет закрытых эпиков",
     "sprint1": {
       "tasks_done": 5,
-      "total_tasks": 8,
-      "percent": 62.5,
+      "total_tasks": 5,
+      "percent": 100,
       "epics_closed": 0,
       "bonus": 0,
-      "total_bonus": 0
+      "total_bonus": 21750
     },
     "sprint2": {
       "tasks_done": 0,
@@ -564,7 +564,7 @@
       "bonus": 0,
       "total_bonus": 0
     },
-    "total": 145000
+    "total": 166750
   },
   "апрель-2026": {
     "oklad": 145000,
