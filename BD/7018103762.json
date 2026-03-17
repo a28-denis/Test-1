@@ -547,7 +547,7 @@
   },
   "март-2026": {
     "oklad": 145000,
-    "epic_names": "нет закрытых эпиков",
+    "epic_names": "Уведомления Keitaro | ГЕО",
     "sprint1": {
       "tasks_done": 5,
       "total_tasks": 5,
@@ -560,11 +560,11 @@
       "tasks_done": 0,
       "total_tasks": 1,
       "percent": 0,
-      "epics_closed": 0,
+      "epics_closed": 1,
       "bonus": 0,
-      "total_bonus": 0
+      "total_bonus": 7250
     },
-    "total": 166750
+    "total": 174000
   },
   "апрель-2026": {
     "oklad": 145000,
